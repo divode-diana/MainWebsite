@@ -62,7 +62,7 @@ const Homepage = () => {
                 <p>{TRANSLATIONS.About.p1}</p>
                 <p>{TRANSLATIONS.About.p1}</p>
                 <div>
-                    <img></img>
+                    <img src='' alt='Diana Fonte fotografia'></img>
                     <div>
                         <p>{TRANSLATIONS.About.p1}</p>
                         <p>{TRANSLATIONS.About.p1}</p>
