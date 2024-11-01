@@ -1,71 +1,91 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom"
-import { TRANSLATIONS } from "../constants/translations"
-import Icon from '../components/Icon';
 import { HashLink } from 'react-router-hash-link';
+import Icon from '../components/Icon';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../constants/translations';
+import { LANGUAGES } from '../constants/enums';
+import { Button } from 'react-bootstrap';
 
 const Homepage = () => {
+    const {language, toggleLanguage} = useLanguage();
+    const content = TRANSLATIONS[language]
+
+
+    useEffect(() => {
+        console.log(language)
+        console.log(content)
+    })
     return (<div>
-        <header className='d-flex justify-content-between align-items-center gap-3'>
+        <header className='header'>
             <HashLink smooth to={'./#landing'}>
-                <h1><img src={'./divode_logo.png'} alt="Divode logotipo em tons de azul" /></h1>
+                <h1><img src={'./divode_logo.png'} alt="Divode logotipo em tons de azul" className='logo' /></h1>
             </HashLink>
-            <ul className='d-none d-md-flex gap-3 align-items-center'>
-                <li><HashLink smooth to={'./#services'}>{TRANSLATIONS.Menu.services}</HashLink></li>
-                <li><HashLink smooth to={'./#about'}>{TRANSLATIONS.Menu.about}</HashLink></li>
-                <li><HashLink smooth to={'./#contacts'}>{TRANSLATIONS.Menu.contacts}</HashLink></li>
-            </ul>
+            <nav className='d-flex gap-5 align-items-center'>
+                <ul className='d-none d-md-flex gap-5 align-items-center m-0 p-0'>
+                    <li><HashLink smooth to={'./#services'}>{content.menu.services}</HashLink></li>
+                    <li><HashLink smooth to={'./#about'}>{content.menu.about}</HashLink></li>
+                    <li><HashLink smooth to={'./#contacts'}>{content.menu.contacts}</HashLink></li>
+                </ul>
+                <Button variant='Link' onClick={toggleLanguage}>
+                    {language === LANGUAGES.pt ? 'PT' : 'EN'}
+                </Button>
+            </nav>
         </header>
 
         <main>
             <div id="landing">
-                <h2>{TRANSLATIONS.Landing.title}</h2>
-                <span>
-                    {TRANSLATIONS.Landing.by}
-                    <Link to={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>{TRANSLATIONS.Landing.author}</Link>
-                </span>
-                <h3>{TRANSLATIONS.Landing.subtitle}</h3>
+                <div className='w-fit-content'>
+                    <h2>{content.landing.title}</h2>
+                    <div>
+                        <span className='me-1'>{content.landing.by}</span>
+                        <Link to={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>{content.landing.author}</Link>
+                    </div>
+                </div>
+                <h3>{content.landing.subtitle}</h3>
             </div>
 
-            <div id="servicos">
-                <div>
-                    <h2>
-                        <Icon icon="palette" />
-                        {TRANSLATIONS.Services.Design.title}
-                    </h2>
-                    <p>{TRANSLATIONS.Services.Design.hmtl}</p>
+            {content.services &&
+                <div id="servicos">
+                    <div>
+                        <h2>
+                            <Icon icon="palette" />
+                            {content.services.design.title}
+                        </h2>
+                        <p dangerouslySetInnerHTML={{ __html: content.services.design.hmtl }}></p>
+                    </div>
+                    <div>
+                        <h2>
+                            <Icon icon="code" />
+                            {content.services.development.title}
+                        </h2>
+                        <p dangerouslySetInnerHTML={{ __html: content.services.development.html }}></p>
+                    </div>
+                    <div>
+                        <h2>
+                            <Icon icon="wifi" />
+                            {content.services.domains.title}
+                        </h2>
+                        <p dangerouslySetInnerHTML={{ __html: content.services.domains.html }}></p>
+                    </div>
+                    <div>
+                        <h2>
+                            <Icon icon="screwdriver-wrench" />
+                            {content.services.management.title}
+                        </h2>
+                        <p dangerouslySetInnerHTML={{ __html: content.services.management.html }}></p>
+                    </div>
                 </div>
-                <div>
-                    <h2>
-                        <Icon icon="code" />
-                        {TRANSLATIONS.Services.Development.title}
-                    </h2>
-                    <p>{TRANSLATIONS.Services.Development.html}</p>
-                </div>
-                <div>
-                    <h2>
-                        <Icon icon="wifi" />
-                        {TRANSLATIONS.Services.Domains.title}
-                    </h2>
-                    <p>{TRANSLATIONS.Services.Domains.html}</p>
-                </div>
-                <div>
-                    <h2>
-                        <Icon icon="screwdriver-wrench" />
-                        {TRANSLATIONS.Services.Management.title}
-                    </h2>
-                    <p>{TRANSLATIONS.Services.Management.html}</p>
-                </div>
-            </div>
+            }
 
             <div id="about">
-                <p>{TRANSLATIONS.About.p1}</p>
-                <p>{TRANSLATIONS.About.p1}</p>
+                <p dangerouslySetInnerHTML={{ __html: content.about.p1 }}></p>
+                <p dangerouslySetInnerHTML={{ __html: content.about.p2 }}></p>
                 <div>
                     <img src='' alt='Diana Fonte fotografia'></img>
                     <div>
-                        <p>{TRANSLATIONS.About.p1}</p>
-                        <p>{TRANSLATIONS.About.p1}</p>
+                        <p dangerouslySetInnerHTML={{ __html: content.about.p3 }}></p>
+                        <p dangerouslySetInnerHTML={{ __html: content.about.p4 }}></p>
                         <div>
                             <Icon icon="linkedin" type='brands'/>
                             <hr />
@@ -75,14 +95,14 @@ const Homepage = () => {
             </div>
 
             <div id="contacts">
-                <p>{TRANSLATIONS.Contacts.subtitle}</p>
+                <p>{content.contacts.subtitle}</p>
                 <Link to={`mailto:'divodedigitalservices'`}>
                     <h2>
-                        {TRANSLATIONS.Contacts.title}    
+                        {content.contacts.title}    
                     </h2>
                 </Link>
                 <form>
-                    <label>{TRANSLATIONS.Contacts.form.label1} {TRANSLATIONS.Contacts.form.mandatory}</label>
+                    <label>{content.contacts.form.label1} {content.contacts.form.mandatory}</label>
                     <input type='text'></input>
                     ...
                 </form>
@@ -91,18 +111,18 @@ const Homepage = () => {
 
         <footer>
             <div>
-                <HashLink smooth to={'./#landing'}>{TRANSLATIONS.Menu.home}</HashLink>
-                <HashLink smooth to={'./#services'}>{TRANSLATIONS.Menu.services}</HashLink>
-                <HashLink smooth to={'./#about'}>{TRANSLATIONS.Menu.about}</HashLink>
-                <HashLink smooth to={'./#contact'}>{TRANSLATIONS.Menu.contacts}</HashLink>
-                <p>{TRANSLATIONS.footer.copyright}</p>
+                <HashLink smooth to={'./#landing'}>{content.menu.home}</HashLink>
+                <HashLink smooth to={'./#services'}>{content.menu.services}</HashLink>
+                <HashLink smooth to={'./#about'}>{content.menu.about}</HashLink>
+                <HashLink smooth to={'./#contact'}>{content.menu.contacts}</HashLink>
+                <p>{content.footer.copyright}</p>
             </div>
             <div>
                 <img src='./divode_logo_white.png' alt='Divode logotipo em branco'></img>
-                <p>{TRANSLATIONS.footer.subtitle}</p>
+                <p>{content.footer.subtitle}</p>
                 <Link to={`mailto:'divodedigitalservices'`}>
                     <Icon icon="envelope" />
-                    {TRANSLATIONS.footer.email}
+                    {content.footer.email}
                 </Link>
                 <Link to={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>
                     <Icon icon="linkedin" type='brands'/>
