@@ -552,6 +552,7 @@ img.illustration4{
 }
 
 img.illustration5{
+    display: none;
     position: absolute;
     left: 0px;
     z-index: 1;
@@ -560,17 +561,13 @@ img.illustration5{
 }
 
 @include media-breakpoint-up(md) {
-    img.illustration1{
+    img.illustration1, img.illustration4, img.illustration5{
         display: block;
     }
 
     img.illustration3{
         margin-top: -8.5rem;
         height: 80px;
-    }
-
-    img.illustration4{
-        display: block;
     }
 }
 
