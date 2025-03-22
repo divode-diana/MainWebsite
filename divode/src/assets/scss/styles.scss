@@ -82,17 +82,23 @@ button.btn.btn-primary{
             margin: 0;
             padding: 0;
 
-            li a{
-                color: $blue-dark;
-                font-family: AdventPro, sans-serif;
-                font-size: 1.5rem;
-                text-decoration: none;
-                font-weight: 500;
-    
-                &:hover{
-                    text-decoration: underline;
-                    color: $red;
+            li {
+                a{
+                    color: $blue-dark;
+                    font-family: AdventPro, sans-serif;
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                    font-weight: 500;
+        
+                    &:hover{
+                        text-decoration: underline;
+                        color: $red;
+                    }
                 }
+
+                &.active a{
+                    color: $red;
+                }                
             }
         }
     }

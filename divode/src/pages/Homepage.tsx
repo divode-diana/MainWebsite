@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom"
 import { HashLink } from 'react-router-hash-link';
 import Icon from '../components/Icon';
@@ -9,13 +9,28 @@ import { Button, Form } from 'react-bootstrap';
 
 const Homepage = () => {
     const {language, toggleLanguage} = useLanguage();
-    const content = TRANSLATIONS[language]
-
+    const content = TRANSLATIONS[language];
+    const [activeSection, setActiveSection] = useState("");
 
     useEffect(() => {
-        console.log(language)
-        console.log(content)
-    })
+        const sections = document.querySelectorAll(".section");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect();
+    }, []);
+    
     return (<div>
         <header className='header'>
             <HashLink smooth to={'./#landing'}>
@@ -23,9 +38,15 @@ const Homepage = () => {
             </HashLink>
             <nav>
                 <ul>
-                    <li><HashLink smooth to={'./#services'}>{content.menu.services}</HashLink></li>
-                    <li><HashLink smooth to={'./#about'}>{content.menu.about}</HashLink></li>
-                    <li><HashLink smooth to={'./#contacts'}>{content.menu.contacts}</HashLink></li>
+                    <li className={activeSection === "services" ? "active" : ""}>
+                        <HashLink smooth to={'./#services'}>{content.menu.services}</HashLink>
+                    </li>
+                    <li className={activeSection === "about" ? "active" : ""}>
+                        <HashLink smooth to={'./#about'}>{content.menu.about}</HashLink>
+                    </li>
+                    <li className={activeSection === "contacts" ? "active" : ""}>
+                        <HashLink smooth to={'./#contacts'}>{content.menu.contacts}</HashLink>
+                    </li>
                 </ul>
                 <Button variant='Link' onClick={toggleLanguage}>
                     {language === LANGUAGES.pt ? 'EN' : 'PT'}
@@ -35,7 +56,7 @@ const Homepage = () => {
         </header>
 
         <main>
-            <div id="landing">
+            <section id="landing" className='section'>
                 <div>
                     <img src='illustration_1.png' className='illustration1'></img>
                     <img src='illustration_2.png' className='illustration2'></img>
@@ -50,10 +71,10 @@ const Homepage = () => {
                     </div>
                     <h3>{content.landing.subtitle}</h3>
                 </div>
-            </div>
+            </section>
 
             {content.services &&
-                <div id="services">
+                <section id="services" className='section'>
                     <div>
                         <h2>
                             <Icon icon="palette" />
@@ -82,10 +103,10 @@ const Homepage = () => {
                         </h2>
                         <p dangerouslySetInnerHTML={{ __html: content.services.management.html }}></p>
                     </div>
-                </div>
+                </section>
             }
 
-            <div id="about">
+            <section id="about" className='section'>
                 <img src='illustration_3.png' className='illustration3'></img>
                 <p dangerouslySetInnerHTML={{ __html: content.about.p1 }}></p>
                 <p dangerouslySetInnerHTML={{ __html: content.about.p2 }}></p>
@@ -102,9 +123,9 @@ const Homepage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div id="contacts">
+            <section id="contacts" className='section'>
                 <div>
                     <div>
                         <p>{content.contacts.subtitle}</p>
@@ -143,7 +164,7 @@ const Homepage = () => {
                         <Icon icon='paper-plane' />
                     </Button>
                 </Form>
-            </div>
+            </section>
         </main>
 
         <footer>
@@ -151,7 +172,7 @@ const Homepage = () => {
                 <HashLink smooth to={'./#landing'}>{content.menu.home}</HashLink>
                 <HashLink smooth to={'./#services'}>{content.menu.services}</HashLink>
                 <HashLink smooth to={'./#about'}>{content.menu.about}</HashLink>
-                <HashLink smooth to={'./#contact'}>{content.menu.contacts}</HashLink>
+                <HashLink smooth to={'./#contacts'}>{content.menu.contacts}</HashLink>
                 <p className='copyright'>{content.footer.copyright}</p>
             </div>
             <div>
