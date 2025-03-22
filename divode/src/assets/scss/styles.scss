@@ -21,10 +21,34 @@ h1, h2, h3, h4, h5, h6{
 a, .btn.btn-Link{
     color: $blue;
     font-weight: 700;
+
+    &:hover{
+        color: $red;
+    }
 }
 
 ul{
     list-style-type: none;
+}
+
+button.btn.btn-primary{
+    background-color: $blue;
+    min-width: 44px;
+    min-width: 44px;
+    color: $white;
+    font-size: 1.2rem;
+    width: fit-content;
+    font-weight: bold;
+    border: none;
+    padding: 0.5rem 1rem;
+
+    .icon{
+        margin-left: 0.5rem;
+    }
+
+    &:hover{
+        background-color: $red;
+    }
 }
 
 
@@ -45,21 +69,68 @@ ul{
         max-height: 90px;
         width: auto;
     }
-    
-    ul{
-        li a{
-            color: $black;
-            font-family: AdventPro, sans-serif;
-            font-size: 1.5rem;
-            text-decoration: none;
-            font-weight: 500;
 
-            &:hover{
-                text-decoration: underline;
+    nav{
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+
+        ul{
+            display: none;
+            align-items: center;
+            gap: 3rem;
+            margin: 0;
+            padding: 0;
+
+            li a{
+                color: $blue-dark;
+                font-family: AdventPro, sans-serif;
+                font-size: 1.5rem;
+                text-decoration: none;
+                font-weight: 500;
+    
+                &:hover{
+                    text-decoration: underline;
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    .btn.btn-Link{
+        align-items: center;
+
+        img{
+            width: 25px;
+            margin-left: 5px;
+            margin-bottom: 4px;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .header{
+        nav{
+            ul{
+                display: flex;
             }
         }
     }
 }
+
+@include media-breakpoint-up(lg) {
+    .header{
+        padding: 0 2rem 0 15vw;
+
+        nav{
+            ul{
+                padding-right: calc(15vw - 2rem - 45.31px - 3rem);
+            }
+        }
+    }
+}
+
+
 
 
 // ________________ MAIN ________________
@@ -193,6 +264,34 @@ main{
     }
 }
 
+@include media-breakpoint-up(md) {
+    main {
+        #services{
+            padding-bottom: 7vw;
+            gap: 6rem;
+
+            & > div{
+                p{
+                    margin: 0 calc(15vw - 1rem) 0 15vw;
+                }
+            }
+
+            & > div:nth-child(odd){
+                h2 {
+                    margin-left: calc(15vw - 1rem);
+                }
+            }
+        
+            & > div:nth-child(even){
+                h2 {
+                    margin-right: calc(15vw - 1rem);
+                    padding-left: 15vw;
+                }
+            }
+        }
+    }
+}
+
 
 // ________________ ABOUT ________________
 
@@ -208,7 +307,7 @@ main{
     img:not(.illustration3){
         width: 100%;
         height: auto;
-        max-width: 350px;
+        max-width: 300px;
         margin: 0 auto;
     }
 
@@ -244,11 +343,58 @@ main{
     }
 }
 
+@include media-breakpoint-up(md) {
+    main {
+        #about{
+            padding: 6rem 8rem;
+
+            & > div{
+                & > div{
+                    & > div{
+                        margin-left: calc(50vw - 1.5rem - 3rem - 3.5rem);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    main {
+        #about{
+            padding: 11vw 15vw;
+
+            & > div{
+                flex-direction: row;
+                gap: 3rem;
+
+                & > div{
+                    justify-content: space-between;
+
+                    & > div{
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 // ________________ CONTACTS ________________
 
 #contacts{
     padding: 0 3rem;
+
+    & > div{
+        display: flex;
+        justify-content: space-between;
+
+        & > div{
+            display: flex;
+            flex-direction: column;
+        }
+    }
 
     form{
         margin-top: 4rem;
@@ -266,18 +412,24 @@ main{
             }
         }
 
-        button.btn{
-            width: fit-content;
-            font-weight: bold;
-            background-color: $blue;
-
-            .icon{
-                margin-left: 0.5rem;
-            }
-        }
-
         & > div{
             width: 100%;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    main {
+        #contacts{
+            padding: 2rem 7rem;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    main {
+        #contacts{
+            padding: 2rem 15vw;
         }
     }
 }
@@ -340,11 +492,43 @@ footer{
     }
 }
 
+@include media-breakpoint-up(md) {
+    footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        & > div:first-child{
+            align-items: flex-start;
+            margin-left: 10rem;
+
+            a{
+                display: block;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    footer {
+        padding: 0 15vw;
+
+        & > div:first-child{
+            margin-left: 0px;
+        }
+    }
+}
+
 
 // ________________ ILLUSTRATIONS ________________
 
 img.illustration1{
     display: none;
+    max-height: 35rem;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    z-index: 1;
 }
 
 img.illustration2{
@@ -364,6 +548,7 @@ img.illustration3{
 
 img.illustration4{
     display: none;
+
 }
 
 img.illustration5{
@@ -372,4 +557,27 @@ img.illustration5{
     z-index: 1;
     bottom: 0;
     height: 19rem;
+}
+
+@include media-breakpoint-up(md) {
+    img.illustration1{
+        display: block;
+    }
+
+    img.illustration3{
+        margin-top: -8.5rem;
+        height: 80px;
+    }
+
+    img.illustration4{
+        display: block;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    img.illustration3{
+        margin-top: -12.5rem;
+        height: 85px;
+        margin-right: 15vw;
+    }
 }

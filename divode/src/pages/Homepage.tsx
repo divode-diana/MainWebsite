@@ -21,14 +21,15 @@ const Homepage = () => {
             <HashLink smooth to={'./#landing'}>
                 <h1><img src={'./divode_logo.png'} alt="Divode logotipo em tons de azul" className='logo' /></h1>
             </HashLink>
-            <nav className='d-flex gap-5 align-items-center'>
-                <ul className='d-none d-md-flex gap-5 align-items-center m-0 p-0'>
+            <nav>
+                <ul>
                     <li><HashLink smooth to={'./#services'}>{content.menu.services}</HashLink></li>
                     <li><HashLink smooth to={'./#about'}>{content.menu.about}</HashLink></li>
                     <li><HashLink smooth to={'./#contacts'}>{content.menu.contacts}</HashLink></li>
                 </ul>
                 <Button variant='Link' onClick={toggleLanguage}>
-                    {language === LANGUAGES.pt ? 'PT' : 'EN'}
+                    {language === LANGUAGES.pt ? 'EN' : 'PT'}
+                    <img src={language === LANGUAGES.pt ? './flag/GB.svg' : './flag/PT.svg'} alt="language flag" />
                 </Button>
             </nav>
         </header>
@@ -104,13 +105,17 @@ const Homepage = () => {
             </div>
 
             <div id="contacts">
-                <p>{content.contacts.subtitle}</p>
-                <Link to={`mailto:'divodedigitalservices'`}>
-                    <h2>
-                        {content.contacts.title}    
-                    </h2>
-                </Link>
-                <img src='illustration_4.png' className='illustration4'></img>
+                <div>
+                    <div>
+                        <p>{content.contacts.subtitle}</p>
+                        <Link to={`mailto:'divodedigitalservices'`}>
+                            <h2>
+                                {content.contacts.title}    
+                            </h2>
+                        </Link>
+                    </div>
+                    <img src='illustration_4.png' className='illustration4'></img>
+                </div>
 
                 <Form>
                     <Form.Group>
