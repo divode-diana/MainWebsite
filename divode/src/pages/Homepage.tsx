@@ -5,7 +5,7 @@ import Icon from '../components/Icon';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../constants/translations';
 import { LANGUAGES } from '../constants/enums';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 const Homepage = () => {
     const {language, toggleLanguage} = useLanguage();
@@ -35,43 +35,49 @@ const Homepage = () => {
 
         <main>
             <div id="landing">
-                <div className='w-fit-content'>
-                    <h2>{content.landing.title}</h2>
-                    <div>
-                        <span className='me-1'>{content.landing.by}</span>
-                        <Link to={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>{content.landing.author}</Link>
-                    </div>
+                <div>
+                    <img src='illustration_1.png' className='illustration1'></img>
+                    <img src='illustration_2.png' className='illustration2'></img>
                 </div>
-                <h3>{content.landing.subtitle}</h3>
+                <div>
+                    <div>
+                        <h2>{content.landing.title}</h2>
+                        <div>
+                            <span className='me-1'>{content.landing.by}</span>
+                            <Link to={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>{content.landing.author}</Link>
+                        </div>
+                    </div>
+                    <h3>{content.landing.subtitle}</h3>
+                </div>
             </div>
 
             {content.services &&
-                <div id="servicos">
+                <div id="services">
                     <div>
                         <h2>
                             <Icon icon="palette" />
-                            {content.services.design.title}
+                            <span>{content.services.design.title}</span>
                         </h2>
                         <p dangerouslySetInnerHTML={{ __html: content.services.design.hmtl }}></p>
                     </div>
                     <div>
                         <h2>
                             <Icon icon="code" />
-                            {content.services.development.title}
+                            <span>{content.services.development.title}</span>
                         </h2>
                         <p dangerouslySetInnerHTML={{ __html: content.services.development.html }}></p>
                     </div>
                     <div>
                         <h2>
                             <Icon icon="wifi" />
-                            {content.services.domains.title}
+                            <span>{content.services.domains.title}</span>
                         </h2>
                         <p dangerouslySetInnerHTML={{ __html: content.services.domains.html }}></p>
                     </div>
                     <div>
                         <h2>
                             <Icon icon="screwdriver-wrench" />
-                            {content.services.management.title}
+                            <span>{content.services.management.title}</span>
                         </h2>
                         <p dangerouslySetInnerHTML={{ __html: content.services.management.html }}></p>
                     </div>
@@ -79,15 +85,18 @@ const Homepage = () => {
             }
 
             <div id="about">
+                <img src='illustration_3.png' className='illustration3'></img>
                 <p dangerouslySetInnerHTML={{ __html: content.about.p1 }}></p>
                 <p dangerouslySetInnerHTML={{ __html: content.about.p2 }}></p>
                 <div>
-                    <img src='' alt='Diana Fonte fotografia'></img>
+                    <img src='1733157254607.jpg' alt='fotografia de Diana Fonte'></img>
                     <div>
                         <p dangerouslySetInnerHTML={{ __html: content.about.p3 }}></p>
                         <p dangerouslySetInnerHTML={{ __html: content.about.p4 }}></p>
                         <div>
-                            <Icon icon="linkedin" type='brands'/>
+                            <a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>
+                                <Icon icon="linkedin" type='brands'/>
+                            </a>
                             <hr />
                         </div>
                     </div>
@@ -101,11 +110,34 @@ const Homepage = () => {
                         {content.contacts.title}    
                     </h2>
                 </Link>
-                <form>
-                    <label>{content.contacts.form.label1} {content.contacts.form.mandatory}</label>
-                    <input type='text'></input>
-                    ...
-                </form>
+                <img src='illustration_4.png' className='illustration4'></img>
+
+                <Form>
+                    <Form.Group>
+                        <Form.Label>{content.contacts.form.label1} <span className='label-extra'>{content.contacts.form.mandatory}</span></Form.Label>
+                        <Form.Control type='text' placeholder={content.contacts.form.placeholder1}></Form.Control>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>{content.contacts.form.label2}</Form.Label>
+                        <Form.Control type='number' placeholder={content.contacts.form.placeholder2}></Form.Control>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>{content.contacts.form.label3} <span className='label-extra'>{content.contacts.form.mandatory}</span></Form.Label>
+                        <Form.Control type='email' placeholder={content.contacts.form.placeholder3}></Form.Control>
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>{content.contacts.form.label4} <span className='label-extra'>{content.contacts.form.mandatory}</span></Form.Label>
+                        <Form.Control as="textarea" rows={10} placeholder={content.contacts.form.placeholder4}></Form.Control>
+                    </Form.Group>
+
+                    <Button variant="primary" type="submit">
+                        {content.contacts.form.submit}
+                        <Icon icon='paper-plane' />
+                    </Button>
+                </Form>
             </div>
         </main>
 
@@ -115,12 +147,12 @@ const Homepage = () => {
                 <HashLink smooth to={'./#services'}>{content.menu.services}</HashLink>
                 <HashLink smooth to={'./#about'}>{content.menu.about}</HashLink>
                 <HashLink smooth to={'./#contact'}>{content.menu.contacts}</HashLink>
-                <p>{content.footer.copyright}</p>
+                <p className='copyright'>{content.footer.copyright}</p>
             </div>
             <div>
                 <img src='./divode_logo_white.png' alt='Divode logotipo em branco'></img>
                 <p>{content.footer.subtitle}</p>
-                <Link to={`mailto:'divodedigitalservices'`}>
+                <Link to={`mailto:'divodedigitalservices'`} className='email'>
                     <Icon icon="envelope" />
                     {content.footer.email}
                 </Link>
@@ -128,6 +160,7 @@ const Homepage = () => {
                     <Icon icon="linkedin" type='brands'/>
                 </Link>
             </div>
+            <img src='illustration_5.png' className='illustration5'></img>
         </footer>
     </div>)
 };

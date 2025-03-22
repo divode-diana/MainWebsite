@@ -101,9 +101,13 @@ export const TRANSLATIONS = [
             form:{
                 mandatory: "Obrigatório",
                 label1: "Nome",
+                placeholder1: "Nome",
                 label2: "Telefone",
+                placeholder2: "+351910000000",
                 label3: "Email",
+                placeholder3: "nome.apelido@exemplo.com",
                 label4: "Mensagem",
+                placeholder4: "Escreva aqui a sua mensagem.",
                 submit: "Enviar",
                 success: "Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.",
                 error: "Não foi possível enviar a mensagem! Por favor tente outra vez mais tarde ou envie-nos um email directamente. Pedimos desculpa pelo incómodo."

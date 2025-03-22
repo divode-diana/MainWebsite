@@ -1,18 +1,375 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import 'variables';
 
+
+// ________________ GENERAL ________________
 body {
     margin: 0;
     font-family: OpenSans, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    min-height: 100vh;
 }
 
+
+// ________________ HTML ELEMENTS ________________
 h1, h2, h3, h4, h5, h6{
     font-family: AdventPro, sans-serif;
 }
 
-a{
+a, .btn.btn-Link{
     color: $blue;
     font-weight: 700;
+}
+
+ul{
+    list-style-type: none;
+}
+
+
+// ________________ HEADER ________________
+.header{
+    background-color: $white;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    padding: 0 2rem;
+    gap: 2rem;
+    z-index: 100;
+
+    .logo{
+        max-height: 90px;
+        width: auto;
+    }
+    
+    ul{
+        li a{
+            color: $black;
+            font-family: AdventPro, sans-serif;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+// ________________ MAIN ________________
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+
+// ________________ LANDING ________________
+
+#landing{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10;
+
+        *:not(img){
+            text-align: center;
+            width: 100%;
+        }
+
+        & > div{
+            width: fit-content;
+        }
+
+        h2{
+            font-size: 5rem;
+            color: $blue-dark;
+        }
+
+        h3{
+            margin-top: 5rem;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    main {
+        #landing{
+            & > div{
+                & > div{
+                    div{ 
+                        text-align: end;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ________________ SERVICES ________________
+
+#services{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 2rem;
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        h2{
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background-color: $light;
+            align-items: center;
+            margin: 0;
+        }
+    
+        p{
+            margin: 0 3rem;
+        }
+    }
+
+    & > div:nth-child(odd){
+        h2 {
+            color: $red;
+            margin-left: 2rem;
+        }
+    }
+
+    & > div:nth-child(even){
+        h2 {
+            color: $blue-dark;
+            margin-right: 2rem;
+            padding-left: 3rem;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    main {
+        #services{
+            & > div{
+                p{
+                    margin: 0 7rem 0 8rem;
+                }
+            }
+
+            & > div:nth-child(odd){
+                h2 {
+                    margin-left: 7rem;
+                }
+            }
+        
+            & > div:nth-child(even){
+                h2 {
+                    margin-right: 7rem;
+                    padding-left: 8rem;
+                }
+            }
+        }
+    }
+}
+
+
+// ________________ ABOUT ________________
+
+#about{
+    background-color: $light;
+    padding: 3rem;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+
+    img:not(.illustration3){
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        & > div{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            & > div{
+                display: flex;
+                gap: 1rem;
+                align-items: end;
+                margin-left: calc(50vw - 1.5rem - 3rem);
+
+                .icon{
+                    font-size: 3rem;
+                }
+
+                hr{
+                    border-color: #CF0501;
+                    border-width: 3px;
+                    opacity: 1;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+
+// ________________ CONTACTS ________________
+
+#contacts{
+    padding: 0 3rem;
+
+    form{
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+
+        label{
+            .label-extra{
+                font-weight: 400;
+                color: $brown;
+                margin-left: 1rem;
+            }
+        }
+
+        button.btn{
+            width: fit-content;
+            font-weight: bold;
+            background-color: $blue;
+
+            .icon{
+                margin-left: 0.5rem;
+            }
+        }
+
+        & > div{
+            width: 100%;
+        }
+    }
+}
+
+
+// ________________ FOOTER ________________
+
+footer{
+    background-color: $teal;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 2rem;
+    color: $white;
+    height: 19rem;
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+        z-index: 10;
+
+        .icon{
+            margin-right: 0.25rem;
+        }
+
+        img{
+            width: 200px;
+            max-width: 50vw;
+        }
+
+        a{
+            color: $white;
+
+            &.email {
+                margin-top: 1rem;
+                font-weight: 500;
+            }
+        }
+
+        p{
+            margin: 0;
+
+            &.copyright {
+                margin-top: 1rem;
+            }
+        }
+
+        .fa-linkedin{
+            font-size: 2.5rem;
+        }
+    }
+
+    & > div:first-child{
+        a{
+            display: none;
+        }
+    }
+}
+
+
+// ________________ ILLUSTRATIONS ________________
+
+img.illustration1{
+    display: none;
+}
+
+img.illustration2{
+    max-height: 35rem;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    z-index: 1;
+}
+
+img.illustration3{
+    position: absolute;
+    margin-top: -7.3rem;
+    height: 70px;
+    right: 0px;
+}
+
+img.illustration4{
+    display: none;
+}
+
+img.illustration5{
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+    bottom: 0;
+    height: 19rem;
 }
