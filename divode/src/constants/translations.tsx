@@ -33,7 +33,7 @@ export const TRANSLATIONS = [
         },
         about: {
             p1: "A <b>Divode é uma consultora unipessoal</b> criada pelas necessidades de um mundo virtual cada vez exigente e competitivo.",
-            p2: "Eu, <a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, como fundadora e única associada, companhar-vos-ei durante todo o processo, desde a conceção à realização dos vossos sonhos.",
+            p2: "Eu, <a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, como fundadora, companhar-vos-ei durante todo o processo, desde a conceção à realização dos vossos sonhos.",
             p3: "Como <b>desenvolvedora e designer web</b>, encontro-me na interseção entre criatividade, tecnologia e experiência do utilizador.",
             p4: "Além dos pixels e do código, desejo contribuir positivamente. Quer seja através de designs acessíveis, práticas ecológicas ou projetos conduzidos pela comunidade, acredito em usar as minhas competências para criar um mundo digital melhor."
         },
@@ -48,13 +48,14 @@ export const TRANSLATIONS = [
                 label4: "Mensagem",
                 submit: "Enviar",
                 success: "Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.",
-                error: "Não foi possível enviar a mensagem! Por favor tente outra vez mais tarde ou envie-nos um email directamente. Pedimos desculpa pelo incómodo."
+                error: "Não foi possível enviar a mensagem! Por favor tente outra vez mais tarde ou envie-nos um email directamente. Pedimos desculpa pelo incómodo.",
+                recaptcha: "Por favor preencha o CAPTCHA."
             }
         },
         footer: {
             copyright: "Copyright. Todos os direitos reservados.",
             subtitle: "Divode Serviços Digitais",
-            email: "divodedigitalservices@gmail.com"
+            email: "info@divode.io"
         }
     },
     {   
@@ -91,7 +92,7 @@ export const TRANSLATIONS = [
         },
         about: {
             p1: "<b>Divode is a sole consultancy</b> created to meet the needs of an increasingly demanding and competitive virtual world.",
-            p2: "I, <a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, as the founder and sole partner, will accompany you throughout the entire process, from conception to the realization of your dreams.",
+            p2: "I, <a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, as the founder, will accompany you throughout the entire process, from conception to the realization of your dreams.",
             p3: "As a <b>web developer and designer</b>, I find myself at the intersection of creativity, technology, and user experience.",
             p4: "Beyond pixels and code, I wish to contribute positively. Whether through accessible designs, eco-friendly practices, or community-driven projects, I believe in using my skills to create a better digital world."
         },
@@ -110,13 +111,14 @@ export const TRANSLATIONS = [
                 placeholder4: "Write your message here.",
                 submit: "Send",
                 success: "Message sent with success! We will contact you soon.",
-                error: "There was an error sending your message! Please try again or send us an email to our email address. We are sorry for the incovenience."
+                error: "There was an error sending your message! Please try again or send us an email to our email address. We are sorry for the incovenience.",
+                recaptcha: "Please complete the CAPTCHA."
             }
         },
         footer: {
             copyright: "Copyright. All rights reserved.",
             subtitle: "Divode Digital Services",
-            email: "divodedigitalservices@gmail.com"
+            email: "info@divode.io"
         }
     }
 ]

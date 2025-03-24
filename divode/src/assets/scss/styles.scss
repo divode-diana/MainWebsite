@@ -36,15 +36,13 @@ button.btn.btn-primary{
     min-width: 44px;
     min-width: 44px;
     color: $white;
-    font-size: 1.2rem;
     width: fit-content;
     font-weight: bold;
     border: none;
     padding: 0.5rem 1rem;
-
-    .icon{
-        margin-left: 0.5rem;
-    }
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
     &:hover{
         background-color: $red;
@@ -416,10 +414,6 @@ main{
                 color: $brown;
                 margin-left: 1rem;
             }
-        }
-
-        & > div{
-            width: 100%;
         }
     }
 }

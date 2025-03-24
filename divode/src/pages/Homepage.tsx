@@ -5,12 +5,65 @@ import Icon from '../components/Icon';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../constants/translations';
 import { LANGUAGES } from '../constants/enums';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Spinner } from 'react-bootstrap';
+import emailjs from "@emailjs/browser";
+import { toast } from 'react-hot-toast';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Homepage = () => {
     const {language, toggleLanguage} = useLanguage();
     const content = TRANSLATIONS[language];
     const [activeSection, setActiveSection] = useState("");
+    const [sendingEmail, setSendingEmail] = useState<boolean>(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
+    const [captchaValue, setCaptchaValue] = useState(null);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleCaptchaChange = (value) => {
+        setCaptchaValue(value);
+    };
+
+    const sendEmail = (e) => {
+        setSendingEmail(true)
+        e.preventDefault();
+
+        if(!captchaValue){
+            toast.error(content.contacts.form.recaptcha, {
+                position: "top-right"
+            });
+        } else{
+            emailjs
+          .send(
+            "service_9g7zlrd",    // Replace with your EmailJS Service ID
+            language === LANGUAGES.pt ? "template_ohw6rew" : "template_0kro2rj",   // Replace with your EmailJS Template ID
+            formData,
+            "LKjM7JJEaUDW7Jx6z"     // Replace with your EmailJS Public Key
+          )
+          .then(
+            (response) => {
+                setSendingEmail(false)
+                toast.success(content.contacts.form.success, {
+                    position: "top-right"
+                  });
+                setFormData({ name: "", email: "", message: "" });
+            },
+            (error) => {
+                setSendingEmail(false)
+                toast.error(content.contacts.form.error, {
+                    position: "top-right"
+                });
+                console.log(error)
+            }
+          );
+        }    
+      };
 
     useEffect(() => {
         const sections = document.querySelectorAll(".section");
@@ -126,10 +179,10 @@ const Homepage = () => {
             </section>
 
             <section id="contacts" className='section'>
-                <div>
+                <div className='contacts_header'>
                     <div>
                         <p>{content.contacts.subtitle}</p>
-                        <Link to={`mailto:'divodedigitalservices'`}>
+                        <Link to={`mailto:info@divode.io`}>
                             <h2>
                                 {content.contacts.title}    
                             </h2>
@@ -138,30 +191,58 @@ const Homepage = () => {
                     <img src='illustration_4.png' className='illustration4'></img>
                 </div>
 
-                <Form>
-                    <Form.Group>
+                <Form onSubmit={sendEmail}>
+                    <Form.Group className='w-100'>
                         <Form.Label>{content.contacts.form.label1} <span className='label-extra'>{content.contacts.form.mandatory}</span></Form.Label>
-                        <Form.Control type='text' placeholder={content.contacts.form.placeholder1}></Form.Control>
+                        <Form.Control 
+                            type='text' 
+                            placeholder={content.contacts.form.placeholder1}
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            disabled={sendingEmail}
+                        ></Form.Control>
                     </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label>{content.contacts.form.label2}</Form.Label>
-                        <Form.Control type='number' placeholder={content.contacts.form.placeholder2}></Form.Control>
-                    </Form.Group>
-
-                    <Form.Group>
+                    <Form.Group className='w-100'>
                         <Form.Label>{content.contacts.form.label3} <span className='label-extra'>{content.contacts.form.mandatory}</span></Form.Label>
-                        <Form.Control type='email' placeholder={content.contacts.form.placeholder3}></Form.Control>
+                        <Form.Control 
+                            type='email' 
+                            placeholder={content.contacts.form.placeholder3}
+                            name='email'
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            disabled={sendingEmail}
+                        ></Form.Control>
                     </Form.Group>
 
-                    <Form.Group>
+                    <Form.Group className='w-100'>
                         <Form.Label>{content.contacts.form.label4} <span className='label-extra'>{content.contacts.form.mandatory}</span></Form.Label>
-                        <Form.Control as="textarea" rows={10} placeholder={content.contacts.form.placeholder4}></Form.Control>
+                        <Form.Control 
+                            as="textarea" 
+                            rows={10} 
+                            placeholder={content.contacts.form.placeholder4}
+                            name='message'
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
+                            disabled={sendingEmail}
+                        ></Form.Control>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <ReCAPTCHA
+                        sitekey="6LcC1_4qAAAAAAiLm5W11KHh-OTYtQXbWagjz4aL"
+                        onChange={handleCaptchaChange}
+                    />
+
+                    <Button variant="primary" type="submit" disabled={sendingEmail || !captchaValue}>
                         {content.contacts.form.submit}
-                        <Icon icon='paper-plane' />
+                        {sendingEmail
+                            ? <Spinner animation="border" size="sm" />
+                            : <Icon icon='paper-plane' />
+                        }
                     </Button>
                 </Form>
             </section>
@@ -178,7 +259,7 @@ const Homepage = () => {
             <div>
                 <img src='./divode_logo_white.png' alt='Divode logotipo em branco'></img>
                 <p>{content.footer.subtitle}</p>
-                <Link to={`mailto:'divodedigitalservices'`} className='email'>
+                <Link to={`mailto:info@divode.io`} className='email'>
                     <Icon icon="envelope" />
                     {content.footer.email}
                 </Link>
