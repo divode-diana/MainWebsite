@@ -10,7 +10,7 @@ export const TRANSLATIONS = [
             title: "Os Nossos Serviços",
             subtitle: "Oferecemos soluções digitais personalizadas para impulsionar seu negócio.",
             design: {
-                title: "Branding e Design UX/UI",
+                title: "Branding, Web Design e Design Gráfico",
                 hmtl: "Criação de identidade visual e design gráfico."
             },
             development: {
@@ -33,7 +33,7 @@ export const TRANSLATIONS = [
         },
         contacts:{
             title: "Quer trabalhar connosco ou tem alguma dúvida?",
-            subtitle: "Entre em contacto preenchando o formulário abaixo.",
+            subtitle: "Entre em contacto preenchando o formulário abaixo e solicite seu orçamento gratuito.",
             form:{
                 mandatory: "Obrigatório",
                 label1: "Nome",
@@ -61,7 +61,7 @@ export const TRANSLATIONS = [
             title: "Our services",
             subtitle: "We offer personalized digital solutions to grow your business.",
             design: {
-                title: "Branding and UX/UI Design",
+                title: "Branding, Web Design and Graphic Design",
                 hmtl: "Creation of a visual identity and graphic design."
             },
             development: {
@@ -84,7 +84,7 @@ export const TRANSLATIONS = [
         },
         contacts:{
             title: "You want to work with us or you have a question?",
-            subtitle: "Get in touch by filling out the form below.",
+            subtitle: "Get in touch by filling out the form below and get your free quote.",
             form:{
                 mandatory: "Mandatory",
                 label1: "Name",
