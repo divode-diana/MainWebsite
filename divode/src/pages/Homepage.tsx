@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Icon from "../components/Icon";
@@ -9,6 +9,8 @@ import { Button, Card, Form, Spinner } from "react-bootstrap";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 import ReCAPTCHA from "react-google-recaptcha";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Homepage = () => {
     const { language, toggleLanguage } = useLanguage();
@@ -66,9 +68,13 @@ const Homepage = () => {
         }
     };
 
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
     return (
         <div>
-            <div className="w-100 d-flex justify-content-center position-absolute top-0 mt-4">
+            <div className="z-1 w-100 d-flex justify-content-center position-absolute top-0 mt-4">
                 <header className="d-flex align-items-center justify-content-between h-30px h-md-50px maxw-md-80 w-100 px-4 px-md-0">
                     <HashLink smooth to={"./#landing"}>
                         <h1>
@@ -100,7 +106,7 @@ const Homepage = () => {
                 </header>
             </div>
 
-            <main className="d-flex align-items-center justify-content-center flex-column gap-5">
+            <main className="d-flex align-items-center justify-content-center flex-column gap-8">
                 <section
                     id="landing"
                     className="d-flex flex-column gap-4 align-items-center justify-content-center minh-100 w-100 overflow-clip px-5"
@@ -121,6 +127,7 @@ const Homepage = () => {
                 </section>
 
                 <section
+                    data-aos="fade-up"
                     id="services"
                     className="maxw-md-80 mx-auto px-4 px-md-0"
                 >
@@ -200,9 +207,12 @@ const Homepage = () => {
 
                 <section
                     id="about"
-                    className="d-flex flex-column-reverse flex-md-row gap-4 maxw-md-80 mx-auto px-4 px-md-0 mt-4 mt-md-5 align-items-start align-items-xl-stretch"
+                    className="d-flex flex-column-reverse flex-md-row gap-4 maxw-md-80 mx-auto px-4 px-md-0 align-items-start align-items-xl-stretch"
                 >
-                    <Card className="w-100 p-4 justify-content-center">
+                    <Card
+                        data-aos="fade-right"
+                        className="w-100 p-4 justify-content-center"
+                    >
                         <p
                             className="fw-bold fs-3 font-advent mb-4"
                             dangerouslySetInnerHTML={{
@@ -221,6 +231,7 @@ const Homepage = () => {
                         ></p>
                     </Card>
                     <img
+                        data-aos="fade-left"
                         src="1733157254607.jpg"
                         alt="fotografia de Diana Fonte"
                         className="rounded w-50 w-sm-25 h-auto"
@@ -228,8 +239,9 @@ const Homepage = () => {
                 </section>
 
                 <section
+                    data-aos="fade-up"
                     id="contacts"
-                    className="mt-4 mt-md-5 w-100 maxw-md-80 mx-auto px-4 px-md-0"
+                    className="w-100 maxw-md-80 mx-auto px-4 px-md-0"
                 >
                     <h2>{content.contacts.title}</h2>
                     <p>{content.contacts.subtitle}</p>

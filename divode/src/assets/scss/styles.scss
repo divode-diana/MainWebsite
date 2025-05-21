@@ -110,7 +110,7 @@ button.btn.btn-primary,
     font-size: 5rem !important;
 }
 
-.fs-8{
+.fs-8 {
     font-size: 0.7rem;
 }
 
@@ -135,6 +135,9 @@ button.btn.btn-primary,
 }
 
 // ________________ LAYOUT ________________
+.gap-8 {
+    gap: 8rem;
+}
 
 #landing {
     background-image: url("../../../public/landing_bg.png");
