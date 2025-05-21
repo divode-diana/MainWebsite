@@ -1,45 +1,39 @@
 export const TRANSLATIONS = [
     {
         locale: 'pt',
-        menu: {
-            home: "Início",
-            services: "Serviços",
-            about: "Sobre",
-            contacts: "Contactos"
-        },
         landing: {
             title: "Serviços Digitais",
-            by: "por",
-            author: "Diana Fonte",
-            subtitle: "Eleve o seu negócio a novos níveis!"
+            subtitle: "Eleve o seu negócio a novos níveis!",
+            cta: "Entre em contacto"
         },
         services: {
+            title: "Os Nossos Serviços",
+            subtitle: "Oferecemos soluções digitais personalizadas para impulsionar seu negócio.",
             design: {
                 title: "Branding e Design UX/UI",
-                hmtl: "Melhore o alcance do seu negócio com uma <b>renovação da imagem gráfica</b> que evidencia o melhor que tem a oferecer! </br> Branding, Design de UX e Design de UI colaboram para criar marcas e produtos digitais eficientes, eficazes e agradáveis, atendendo às necessidades dos utilizadores e superando suas expectativas."
+                hmtl: "Criação de identidade visual e design gráfico."
             },
             development: {
                 title: "Desenvolvimento Web",
-                html: "Este serviço refere-se à <b>criação de websites</b> para a internet totalmente customizados, sem o uso de templates. </br> Envolve programação, responsividade, acessibilidade e outras funcionalidades para criar soluções interativas e funcionais para a web. "
+                html: "Desenvolvimento de sites funcionais e responsivos."
             },
             domains: {
                 title: "Domínios e Alojamento",
-                html: "<b>Coloque o seu website online</b> para que todos o possam usar! </br> Este serviço incluí a definição e compra de um domínio só seu e a colocação do website na internet."
+                html: "Hospedagem confiável e segura."
             },
             management: {
                 title: "Gestão e Manutenção",
-                html: " Manter um website atualizado é crucial para garantir que ele funcione com capacidade total e atraia e retenha visitantes. Por esta razão facultamos este serviço, para que possa facilmente <b>manter o seu negócio sempre atualizado</b>."
+                html: "Manutenção contínua para seu site."
             },
         },
         about: {
-            p1: "A <b>Divode é uma consultora unipessoal</b> criada pelas necessidades de um mundo virtual cada vez exigente e competitivo.",
-            p2: "Eu, <a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, como fundadora, companhar-vos-ei durante todo o processo, desde a conceção à realização dos vossos sonhos.",
-            p3: "Como <b>desenvolvedora e designer web</b>, encontro-me na interseção entre criatividade, tecnologia e experiência do utilizador.",
-            p4: "Além dos pixels e do código, desejo contribuir positivamente. Quer seja através de designs acessíveis, práticas ecológicas ou projetos conduzidos pela comunidade, acredito em usar as minhas competências para criar um mundo digital melhor."
+            p1: "<a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, fundadora da Divode — Especialista em Desenvolvimento Web",
+            p2: "A divode é uma consultora de web design e desenvolvimento focada em criar experiências digitais funcionais, acessíveis e conscientes. Acompanhamos todo o processo, da ideia ao lançamento.",
+            p3: "Na interseção entre criatividade, tecnologia e usabilidade, acreditamos em usar o design acessível, práticas sustentáveis e impacto positivo para transformar o mundo digital."
         },
         contacts:{
-            title: "Contacte-nos!",
-            subtitle: "Quer trabalhar connosco ou tem alguma dúvida?",
+            title: "Quer trabalhar connosco ou tem alguma dúvida?",
+            subtitle: "Entre em contacto preenchando o formulário abaixo.",
             form:{
                 mandatory: "Obrigatório",
                 label1: "Nome",
@@ -53,52 +47,44 @@ export const TRANSLATIONS = [
             }
         },
         footer: {
-            copyright: "Copyright. Todos os direitos reservados.",
-            subtitle: "Divode Serviços Digitais",
-            email: "info@divode.io"
+            copyright: "Todos os direitos reservados."
         }
     },
     {   
         locale: 'en',
-        menu: {
-            home: "Landing",
-            services: "Services",
-            about: "About",
-            contacts: "Contacts"
-        },
         landing: {
             title: "Digital Services",
-            by: "by",
-            author: "Diana Fonte",
-            subtitle: "Lift your business to new levels!"
+            subtitle: "Lift your business to new levels!",
+            cta: "Contact us"
         },
         services: {
+            title: "Our services",
+            subtitle: "We offer personalized digital solutions to grow your business.",
             design: {
                 title: "Branding and UX/UI Design",
-                hmtl: "Improve your business with a <b>makeover</b> that brings out the best you have to offer! </br> Branding, UX Design and UI Design work together to create brands and digital products that are eficient, pleasant, fulfil the users's needs and surpass your expectations."
+                hmtl: "Creation of a visual identity and graphic design."
             },
             development: {
                 title: "Web Development",
-                html: "This service is all about <b>creating fully customized websites</b> for the internet, without using templates. </br> Using programing, responsiveness, acessibility and other functionalities we create interactive solutions that are great in the web."
+                html: "Development of functional and responsive websites."
             },
             domains: {
                 title: "Domains and Hosting",
-                html: "<b>Put your website online</b> so everyone can use it!</br> This service includes defining and purchasing your own domain and putting the website on the internet."
+                html: "Trustworthy and secure hosting."
             },
             management: {
                 title: "Management and Maintenance",
-                html: "Keeping a website up to date is crucial to ensure it operates at full capacity and attracts and retains visitors. For this reason, we offer this service so you can <b>easily keep your business always up to date</b>."
+                html: "Continuous maintenance of your website."
             },
         },
         about: {
-            p1: "<b>Divode is a sole consultancy</b> created to meet the needs of an increasingly demanding and competitive virtual world.",
-            p2: "I, <a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, as the founder, will accompany you throughout the entire process, from conception to the realization of your dreams.",
-            p3: "As a <b>web developer and designer</b>, I find myself at the intersection of creativity, technology, and user experience.",
-            p4: "Beyond pixels and code, I wish to contribute positively. Whether through accessible designs, eco-friendly practices, or community-driven projects, I believe in using my skills to create a better digital world."
+            p1: "<a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, founder of Divode — Specialist in Web Development",
+            p2: "Divode is a web design and development consultancy focused on creating functional, accessible, and mindful digital experiences. We support the entire process, from idea to launch.",
+            p3: "At the intersection of creativity, technology, and usability, we believe in using accessible design, sustainable practices, and positive impact to transform the digital world."
         },
         contacts:{
-            title: "Contact us!",
-            subtitle: "You want to work with us or you have a question?",
+            title: "You want to work with us or you have a question?",
+            subtitle: "Get in touch by filling out the form below.",
             form:{
                 mandatory: "Mandatory",
                 label1: "Name",
@@ -116,9 +102,7 @@ export const TRANSLATIONS = [
             }
         },
         footer: {
-            copyright: "Copyright. All rights reserved.",
-            subtitle: "Divode Digital Services",
-            email: "info@divode.io"
+            copyright: "All rights reserved.",
         }
     }
 ]
