@@ -8,7 +8,7 @@ export const TRANSLATIONS = [
         },
         services: {
             title: "Os Nossos Serviços",
-            subtitle: "Oferecemos soluções digitais personalizadas para impulsionar seu negócio.",
+            subtitle: "Oferecemos soluções digitais personalizadas para impulsionar o seu negócio.",
             design: {
                 title: "Branding, Web Design e Design Gráfico",
                 hmtl: "Criação de identidade visual e design gráfico."
@@ -29,11 +29,11 @@ export const TRANSLATIONS = [
         about: {
             p1: "<a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, fundadora da Divode — Especialista em Desenvolvimento Web",
             p2: "A divode é uma consultora de web design e desenvolvimento focada em criar experiências digitais funcionais, acessíveis e conscientes. Acompanhamos todo o processo, da ideia ao lançamento.",
-            p3: "Na interseção entre criatividade, tecnologia e usabilidade, acreditamos em usar o design acessível, práticas sustentáveis e impacto positivo para transformar o mundo digital."
+            p3: "Na interseção entre criatividade, tecnologia e usabilidade, acreditamos em usar o design acessível, práticas sustentáveis e com impacto positivo para transformar o mundo digital."
         },
         contacts:{
             title: "Quer trabalhar connosco ou tem alguma dúvida?",
-            subtitle: "Entre em contacto preenchando o formulário abaixo e solicite seu orçamento gratuito.",
+            subtitle: "Entre em contacto preenchendo o formulário abaixo e solicite o seu orçamento gratuitamente.",
             form:{
                 mandatory: "Obrigatório",
                 label1: "Nome",

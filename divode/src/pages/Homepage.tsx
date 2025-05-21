@@ -99,7 +99,7 @@ const Homepage = () => {
                                         : "./flag/PT.svg"
                                 }
                                 alt="language flag"
-                                className="h-25px w-auto"
+                                className="h-15px w-auto"
                             />
                         </Button>
                     </nav>
@@ -338,9 +338,14 @@ const Homepage = () => {
 
             <footer className="w-100 mt-5 d-flex flex-column align-items-center gap-4 mb-4">
                 <div className="d-flex gap-5 fs-2">
-                    <Link to={`mailto:info@divode.io`} className="email">
+                    <a
+                        href="mailto:info@divode.io"
+                        className="email"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <Icon icon="envelope" />
-                    </Link>
+                    </a>
                     <Link
                         to={"https://www.linkedin.com/in/dianafonte/"}
                         target="_blank"

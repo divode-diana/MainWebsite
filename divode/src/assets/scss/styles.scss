@@ -28,7 +28,7 @@ a,
     font-weight: 700;
 
     &:hover {
-        color: $blue;
+        color: $red-dark;
     }
 }
 
@@ -44,14 +44,14 @@ button.btn.btn-primary,
     color: $white;
     width: fit-content;
     font-weight: bold;
-    border: 2px solid $red;
+    border: 0;
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 
     &:hover {
-        border-color: $blue;
+        background-color: $red-dark;
     }
 }
 
@@ -67,8 +67,8 @@ button.btn.btn-primary,
     height: 30px;
 }
 
-.h-25px {
-    height: 25px;
+.h-15px {
+    height: 15px;
 }
 
 .minh-100 {
