@@ -27,7 +27,7 @@ export const TRANSLATIONS = [
             },
         },
         about: {
-            p1: "<a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, fundadora da Divode — Especialista em Desenvolvimento Web",
+            p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank'>Diana Fonte</a>, fundadora da Divode — Especialista em Desenvolvimento Web",
             p2: "A divode é uma consultora de web design e desenvolvimento focada em criar experiências digitais funcionais, acessíveis e conscientes. Acompanhamos todo o processo, da ideia ao lançamento.",
             p3: "Na interseção entre criatividade, tecnologia e usabilidade, acreditamos em usar o design acessível, práticas sustentáveis e com impacto positivo para transformar o mundo digital."
         },
@@ -78,7 +78,7 @@ export const TRANSLATIONS = [
             },
         },
         about: {
-            p1: "<a href={'https://www.linkedin.com/in/dianafonte/'} target='_blank'>Diana Fonte</a>, founder of Divode — Specialist in Web Development",
+            p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank'>Diana Fonte</a>, founder of Divode — Specialist in Web Development",
             p2: "Divode is a web design and development consultancy focused on creating functional, accessible, and mindful digital experiences. We support the entire process, from idea to launch.",
             p3: "At the intersection of creativity, technology, and usability, we believe in using accessible design, sustainable practices, and positive impact to transform the digital world."
         },
