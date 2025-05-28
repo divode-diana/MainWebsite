@@ -1,0 +1,146 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "variables";
+
+// ________________ GENERAL ________________
+body {
+    margin: 0;
+    font-family: OpenSans, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    min-height: 100vh;
+}
+
+// ________________ HTML ELEMENTS ________________
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-advent {
+    font-family: AdventPro, sans-serif;
+}
+
+a,
+.btn.btn-Link {
+    color: $red;
+    font-weight: 700;
+
+    &:hover {
+        color: $red-dark;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+button.btn.btn-primary,
+.btn.btn-primary {
+    background-color: $red;
+    min-width: 44px;
+    min-width: 44px;
+    color: $white;
+    width: fit-content;
+    font-weight: bold;
+    border: 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+        background-color: $red-dark;
+    }
+}
+
+.card {
+    background-color: $light;
+    border: 0;
+    box-shadow: 1px 1px 5px #f1f0ea;
+    padding: 1rem;
+}
+
+// ________________ SIZES ________________
+.h-30px {
+    height: 30px;
+}
+
+.h-15px {
+    height: 15px;
+}
+
+.minh-100 {
+    min-height: 100vh;
+}
+
+.maxw-100 {
+    max-width: 100% !important;
+}
+
+@include media-breakpoint-up(sm) {
+    .w-sm-25 {
+        width: 25% !important;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .h-md-50px {
+        height: 50px;
+    }
+
+    .w-md-50 {
+        width: 50% !important;
+    }
+
+    .maxw-md-80 {
+        max-width: 80vw;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .w-lg-25 {
+        width: 25% !important;
+    }
+}
+
+// ________________ TEXT ________________
+.fs-1 {
+    font-size: 5rem !important;
+}
+
+.fs-8 {
+    font-size: 0.7rem;
+}
+
+.text-light-blue {
+    color: $blue-light;
+}
+
+.text-blue {
+    color: $blue;
+}
+
+.text-dark-blue {
+    color: $blue-dark;
+}
+
+.text-teal {
+    color: $teal;
+}
+
+.text-brown {
+    color: $brown;
+}
+
+// ________________ LAYOUT ________________
+.gap-8 {
+    gap: 8rem;
+}
+
+#landing {
+    background-image: url("../../../public/landing_bg.png");
+    background-size: cover;
+    background-position: right;
+}
