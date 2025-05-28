@@ -13,7 +13,7 @@ const LanguageContext = createContext<languagesType>({
 
 const LanguageProvider = ({ children }) => {
   const [lang, setLang] = useState<LANGUAGES>(localStorage.getItem("lang") 
-    ?  localStorage.getItem("lang") === 'pt'
+    ?  JSON.parse(localStorage.getItem("lang")!) === LANGUAGES.pt
       ? LANGUAGES.pt
       : LANGUAGES.en
     : LANGUAGES.pt
@@ -24,6 +24,7 @@ const LanguageProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log(lang, JSON.stringify(lang))
     localStorage.setItem("lang", JSON.stringify(lang));
   }, [lang])
 
