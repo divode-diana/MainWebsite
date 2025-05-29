@@ -42,12 +42,12 @@ const Homepage = () => {
         } else {
             emailjs
                 .send(
-                    "service_9g7zlrd", // Replace with your EmailJS Service ID
+                    process.env.REACT_APP_EMAILJS_SERVICE_ID!,
                     language === LANGUAGES.pt
-                        ? "template_ohw6rew"
-                        : "template_0kro2rj", // Replace with your EmailJS Template ID
+                        ? process.env.REACT_APP_EMAILJS_TEMPLATE_ID_PT!
+                        : process.env.REACT_APP_EMAILJS_TEMPLATE_ID_ENG!,
                     formData,
-                    "LKjM7JJEaUDW7Jx6z" // Replace with your EmailJS Public Key
+                    process.env.REACT_APP_EMAILJS_USER_ID // Replace with your EmailJS Public Key
                 )
                 .then(
                     (response) => {
@@ -314,7 +314,7 @@ const Homepage = () => {
 
                             <div className="float-end d-flex flex-column gap-3 align-items-center">
                                 <ReCAPTCHA
-                                    sitekey="6LcC1_4qAAAAAAiLm5W11KHh-OTYtQXbWagjz4aL"
+                                    sitekey={process.env.REACT_APP_RECAPTCHA_KEY}
                                     onChange={handleCaptchaChange}
                                 />
 
