@@ -47,7 +47,7 @@ export const TRANSLATIONS = [
             }
         },
         footer: {
-            copyright: "© 2025 Divode - Diana Fonte, NIF 266405061. Todos os direitos reservados.",
+            copyright: "© 2025 Divode - Diana Fonte. Todos os direitos reservados.",
             rgpd: "Política de Privacidade",
             termos: "Termos e Condições"
         },
@@ -115,7 +115,7 @@ export const TRANSLATIONS = [
             }
         },
         footer: {
-            copyright: "© 2025 Divode - Diana Fonte, NIF 266405061. All rights reserved.",
+            copyright: "© 2025 Divode - Diana Fonte. All rights reserved.",
             rgpd: "Privacy policies",
             termos: "Terms and conditions"
         },
