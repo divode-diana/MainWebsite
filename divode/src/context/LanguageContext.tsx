@@ -24,7 +24,6 @@ const LanguageProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log(lang, JSON.stringify(lang))
     localStorage.setItem("lang", JSON.stringify(lang));
   }, [lang])
 

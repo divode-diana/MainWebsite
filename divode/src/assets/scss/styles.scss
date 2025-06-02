@@ -32,10 +32,6 @@ a,
     }
 }
 
-ul {
-    list-style-type: none;
-}
-
 button.btn.btn-primary,
 .btn.btn-primary {
     background-color: $red;
@@ -137,6 +133,10 @@ button.btn.btn-primary,
 // ________________ LAYOUT ________________
 .gap-8 {
     gap: 8rem;
+}
+
+.mt-10{
+    margin-top: 10rem;
 }
 
 #landing {

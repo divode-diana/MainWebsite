@@ -50,6 +50,13 @@ export const TRANSLATIONS = [
             copyright: "© 2025 Divode - Diana Fonte, NIF 266405061. Todos os direitos reservados.",
             rgpd: "Política de Privacidade",
             termos: "Termos e Condições"
+        },
+        rgpd_terms:{
+            back: "Voltar",
+            rgpd:{
+                title: "Política de Privacidade",
+                texto: "<p>A presente Política de Privacidade explica como são recolhidos e tratados os dados pessoais dos utilizadores deste website, em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) – Regulamento (UE) 2016/679.</p>\n\n<h3 class=\"fs-5 mb-3 mt-5\">1. RESPONSÁVEL PELO TRATAMENTO</h3>\n<p>O responsável pelo tratamento dos dados é Diana Fonte (Divode), NIF 266405061, com sede em Aveiro, Portugal. Qualquer questão relacionada com a privacidade pode ser enviada para: diana@divode.io.</p>\n\n<h3 class=\"fs-5 mb-3 mt-5\">2. DADOS PESSOAIS RECOLHIDOS</h3>\n<p>Podemos recolher os seguintes dados:</p>\n<ul>\n<li>Nome</li>\n<li>Endereço de e-mail</li>\n<li>Número de telefone (se fornecido)</li>\n<li>Dados de navegação (cookies e ferramentas analíticas)</li>\n</ul>\n\n<h3 class=\"fs-5 mb-3 mt-5\">3. FINALIDADE DO TRATAMENTO</h3>\n<p>Os dados recolhidos são utilizados exclusivamente para:</p>\n<ul>\n<li>Responder a pedidos de contacto</li>\n<li>Prestação de serviços contratados</li>\n<li>Envio de orçamentos</li>\n<li>Gestão de clientes</li>\n<li>Cumprimento de obrigações legais</li>\n</ul>\n\n<h3 class=\"fs-5 mb-3 mt-5\">4. CONSERVAÇÃO DOS DADOS</h3>\n<p>Os dados serão conservados apenas pelo período necessário para os fins a que se destinam, ou conforme exigido por lei.</p>\n\n<h3 class=\"fs-5 mb-3 mt-5\">5. PARTILHA DE DADOS</h3>\n<p>Não partilhamos os teus dados com terceiros, exceto quando exigido por lei ou para cumprimento de obrigações fiscais e legais.</p>\n\n<h3 class=\"fs-5 mb-3 mt-5\">6. DIREITOS DO TITULAR DOS DADOS</h3>\n<p>Tens o direito de:</p>\n<ul>\n<li>Aceder aos teus dados</li>\n<li>Retificar dados incorretos</li>\n<li>Solicitar o apagamento</li>\n<li>Opor-te ao tratamento</li>\n<li>Solicitar a portabilidade dos dados</li>\n</ul>\n<p>Para exercer estes direitos, contacta: diana@divode.io.</p>\n\n<h3 class=\"fs-5 mb-3 mt-5\">7. SEGURANÇA DOS DADOS</h3>\n<p>São adotadas medidas técnicas e organizativas adequadas para proteger os dados pessoais contra perda, uso indevido ou acesso não autorizado.</p>\n\n<h3 class=\"fs-5 mb-3 mt-5\">8. ALTERAÇÕES A ESTA POLÍTICA</h3>\n<p>Esta política pode ser atualizada. Recomenda-se a sua consulta regular.</p>\n\n<p><strong>Última atualização: 02/06/2025</strong></p>"
+            }
         }
     },
     {   
@@ -107,6 +114,13 @@ export const TRANSLATIONS = [
             copyright: "© 2025 Divode - Diana Fonte, NIF 266405061. All rights reserved.",
             rgpd: "Privacy policies",
             termos: "Terms and conditions"
+        },
+        rgpd_terms:{
+            back: "Go to homepage",
+            rgpd:{
+                title: "Privacy policies",
+                texto: "lorem ipsum"
+            }
         }
     }
 ]

@@ -10,10 +10,10 @@ import Termos from "./pages/Termos";
 import { LANGUAGES } from "./constants/enums";
 import { useLanguage } from "./context/LanguageContext";
 import { TRANSLATIONS } from "./constants/translations";
+import { useLocation } from 'react-router-dom';
 
 const loadFontAwesome = () => {
     const kitId = process.env.REACT_APP_FONTAWESOME_KIT_KEY;
-    console.log("FontAwesome Kit ID:", kitId);
     if (!kitId) return;
 
     const script = document.createElement("script");
@@ -26,10 +26,15 @@ const loadFontAwesome = () => {
 function App() {
     const { language, toggleLanguage } = useLanguage();
     const content = TRANSLATIONS[language];
+    const location = useLocation();
 
     useEffect(() => {
         loadFontAwesome();
     }, []);
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [location.pathname])
 
     return (
         <>
@@ -38,8 +43,8 @@ function App() {
                     <HashLink smooth to={"./#landing"}>
                         <h1>
                             <img
-                                src={"./divode_logo.png"}
-                                alt="Divode escrito em branco"
+                                src={(location.pathname === '/rgpd' || location.pathname === '/termos') ? "./logo_color.png" : "./divode_logo.png"}
+                                alt="Divode logotipo"
                                 className="h-30px h-md-50px w-auto"
                             />
                         </h1>
@@ -65,7 +70,7 @@ function App() {
                 </header>
             </div>
 
-            <main>
+            <main className="d-flex flex-column gap-4 minh-100 w-100 overflow-clip">
                 <Routes>
                     <Route path="/" element={<Homepage />} />
                     <Route path="/rgpd" element={<RGPD />} />
