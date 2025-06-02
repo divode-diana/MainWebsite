@@ -131,11 +131,8 @@ button.btn.btn-primary,
 }
 
 // ________________ LAYOUT ________________
-.gap-8 {
-    gap: 8rem;
-}
 
-.mt-10{
+.mt-10 {
     margin-top: 10rem;
 }
 
@@ -143,4 +140,10 @@ button.btn.btn-primary,
     background-image: url("../../../public/landing_bg.png");
     background-size: cover;
     background-position: right;
+}
+
+@include media-breakpoint-up(lg) {
+    .gap-lg-8 {
+        gap: 8rem !important;
+    }
 }

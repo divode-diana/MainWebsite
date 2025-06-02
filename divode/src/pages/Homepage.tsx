@@ -72,7 +72,7 @@ const Homepage = () => {
     }, []);
 
     return (
-        <div className="d-flex align-items-center justify-content-center flex-column gap-8">
+        <div className="d-flex align-items-center justify-content-center flex-column gap-5 gap-lg-8">
             <section
                 id="landing"
                 className="d-flex flex-column gap-4 align-items-center justify-content-center minh-100 w-100 overflow-clip px-5"
