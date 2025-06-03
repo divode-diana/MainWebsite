@@ -37,4 +37,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install -g gh-pages
-          npx gh-pages -d build -b gh-pages -u "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}"
+          npx gh-pages -d build -b gh-pages \
+            -u "GitHub Actions <actions@github.com>" \
+            -r "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}"
