@@ -69,7 +69,7 @@ const Homepage = () => {
 
     useEffect(() => {
         AOS.init();
-        console.log("RECAPTCHA sitekey:", process.env.REACT_APP_RECAPTCHA_SITEKEY);
+        console.log("RECAPTCHA sitekey", process.env.REACT_APP_RECAPTCHA_SITEKEY);
     }, []);
 
     return (
