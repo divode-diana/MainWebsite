@@ -132,10 +132,6 @@ button.btn.btn-primary,
 
 // ________________ LAYOUT ________________
 
-.mt-10 {
-    margin-top: 10rem;
-}
-
 #landing {
     background-image: url("../../../public/landing_bg.png");
     background-size: cover;
@@ -145,5 +141,9 @@ button.btn.btn-primary,
 @include media-breakpoint-up(lg) {
     .gap-lg-8 {
         gap: 8rem !important;
+    }
+
+    .mt-lg-10 {
+        margin-top: 10rem;
     }
 }
