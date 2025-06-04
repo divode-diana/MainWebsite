@@ -78,7 +78,7 @@ function App() {
                 </Routes>
             </main>
 
-            <footer className="w-100 mt-5 d-flex flex-column align-items-center gap-4 mb-4">
+            <footer className="w-100 mt-5 d-flex flex-column align-items-center gap-4 mb-4 px-4">
                 <div className="d-flex gap-5 fs-2">
                     <a
                         href="mailto:info@divode.io"
@@ -95,7 +95,7 @@ function App() {
                         <Icon icon="linkedin" type="brands" />
                     </Link>
                 </div>
-                <p className="fs-8 m-0">{content.footer.copyright}</p>
+                <p className="fs-8 m-0 text-center">{content.footer.copyright}</p>
                 <div className="d-flex flex-column flex-md-row gap-4 align-items-center fs-8">
                     <Link to={"/rgpd"}>{content.footer.rgpd}</Link>
                     <Link to={"/termos"}>{content.footer.termos}</Link>
