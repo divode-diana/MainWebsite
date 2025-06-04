@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build the project
+      - name: Build project with environment variables
         env:
           REACT_APP_EMAILJS_USER_ID: ${{ secrets.REACT_APP_EMAILJS_USER_ID }}
           REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
@@ -33,6 +33,11 @@ jobs:
           REACT_APP_RECAPTCHA_SITEKEY: ${{ secrets.REACT_APP_RECAPTCHA_SITEKEY }}
           REACT_APP_FONTAWESOME_KIT_KEY: ${{ secrets.REACT_APP_FONTAWESOME_KIT_KEY }}
         run: npm run build
+
+      - name: Set Git identity for deployment
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
 
       - name: Deploy to GitHub Pages
         env:
