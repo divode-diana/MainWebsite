@@ -218,7 +218,7 @@ const Homepage = () => {
                         <Form.Group className="w-100">
                             <Form.Label>
                                 {content.contacts.form.label1}{" "}
-                                <span className="fs-8 text-brown ms-2">
+                                <span className="fs-8 text-red-dark ms-2">
                                     {content.contacts.form.mandatory}
                                 </span>
                             </Form.Label>
@@ -236,7 +236,7 @@ const Homepage = () => {
                         <Form.Group className="w-100">
                             <Form.Label>
                                 {content.contacts.form.label3}{" "}
-                                <span className="fs-8 text-brown ms-2">
+                                <span className="fs-8 text-red-dark ms-2">
                                     {content.contacts.form.mandatory}
                                 </span>
                             </Form.Label>
@@ -254,7 +254,7 @@ const Homepage = () => {
                         <Form.Group className="w-100">
                             <Form.Label>
                                 {content.contacts.form.label4}{" "}
-                                <span className="fs-8 text-brown ms-2">
+                                <span className="fs-8 text-red-dark ms-2">
                                     {content.contacts.form.mandatory}
                                 </span>
                             </Form.Label>

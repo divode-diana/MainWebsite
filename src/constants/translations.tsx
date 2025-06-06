@@ -1,6 +1,7 @@
 export const TRANSLATIONS = [
     {
         locale: 'pt',
+        skipToMain: 'Saltar para o conteúdo principal',
         landing: {
             title: "Serviços Digitais",
             subtitle: "Eleve o seu negócio a novos níveis!",
@@ -65,6 +66,7 @@ export const TRANSLATIONS = [
     },
     {   
         locale: 'en',
+        skipToMain: 'Skip to main content',
         landing: {
             title: "Digital Services",
             subtitle: "Lift your business to new levels!",
