@@ -27,7 +27,7 @@ a,
     color: $red;
     font-weight: 700;
 
-    &:hover {
+    &:hover, &:focus {
         color: $red-dark;
     }
 }
@@ -130,6 +130,10 @@ button.btn.btn-primary,
     color: $brown;
 }
 
+.text-red-dark {
+    color: $red-dark;
+}
+
 // ________________ LAYOUT ________________
 
 .mt-5rem{
@@ -140,6 +144,10 @@ button.btn.btn-primary,
     background-image: url("../../../public/landing_bg.png");
     background-size: cover;
     background-position: right;
+}
+
+.opacity-focus-1:focus{
+    opacity: 1 !important;
 }
 
 @include media-breakpoint-up(md) {
