@@ -107,7 +107,7 @@ function App() {
                         <Icon icon="envelope" />
                     </a>
                     <Link
-                        to={"https://www.linkedin.com/in/dianafonte/"}
+                        to={"https://www.linkedin.com/company/divode"}
                         target="_blank"
                         title="LinkedIn"
                     >
