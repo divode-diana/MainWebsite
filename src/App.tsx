@@ -38,7 +38,7 @@ function App() {
 
     return (
         <>
-            <div className="position-absolute top-0 w-100 d-flex justify-content-center">
+            <div role="navigation" className="position-absolute top-0 w-100 d-flex justify-content-center">
                 <HashLink
                     smooth
                     to={"./#main"}

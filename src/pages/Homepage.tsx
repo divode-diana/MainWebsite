@@ -216,13 +216,14 @@ const Homepage = () => {
                         className="d-flex flex-column gap-3"
                     >
                         <Form.Group className="w-100">
-                            <Form.Label>
+                            <Form.Label htmlFor="nameInput">
                                 {content.contacts.form.label1}{" "}
                                 <span className="fs-8 text-red-dark ms-2">
                                     {content.contacts.form.mandatory}
                                 </span>
                             </Form.Label>
                             <Form.Control
+                                id="nameInput"
                                 type="text"
                                 placeholder={content.contacts.form.placeholder1}
                                 name="name"
@@ -234,13 +235,14 @@ const Homepage = () => {
                         </Form.Group>
 
                         <Form.Group className="w-100">
-                            <Form.Label>
+                            <Form.Label htmlFor="emailInput">
                                 {content.contacts.form.label3}{" "}
                                 <span className="fs-8 text-red-dark ms-2">
                                     {content.contacts.form.mandatory}
                                 </span>
                             </Form.Label>
                             <Form.Control
+                                id="emailInput"
                                 type="email"
                                 placeholder={content.contacts.form.placeholder3}
                                 name="email"
@@ -252,13 +254,14 @@ const Homepage = () => {
                         </Form.Group>
 
                         <Form.Group className="w-100">
-                            <Form.Label>
+                            <Form.Label htmlFor="messageInput">
                                 {content.contacts.form.label4}{" "}
                                 <span className="fs-8 text-red-dark ms-2">
                                     {content.contacts.form.mandatory}
                                 </span>
                             </Form.Label>
                             <Form.Control
+                                id="messageInput"
                                 as="textarea"
                                 rows={10}
                                 placeholder={content.contacts.form.placeholder4}
