@@ -240,7 +240,7 @@ const Homepage = () => {
                                 disabled={sendingEmail}
                             ></Form.Control>
                             {formErrors && formData.name === "" && (
-                                <Form.Text className="text-danger">
+                                <Form.Text className="text-red-dark">
                                     {content.contacts.form.mandatoryError}
                                 </Form.Text>
                             )}
@@ -263,7 +263,7 @@ const Homepage = () => {
                                 disabled={sendingEmail}
                             ></Form.Control>
                             {formErrors && !formData.email && (
-                                <Form.Text className="text-danger">
+                                <Form.Text className="text-red-dark">
                                     {content.contacts.form.mandatoryError}
                                 </Form.Text>
                             )}
@@ -287,7 +287,7 @@ const Homepage = () => {
                                 disabled={sendingEmail}
                             ></Form.Control>
                             {formErrors && !formData.message && (
-                                <Form.Text className="text-danger">
+                                <Form.Text className="text-red-dark">
                                     {content.contacts.form.mandatoryError}
                                 </Form.Text>
                             )}
