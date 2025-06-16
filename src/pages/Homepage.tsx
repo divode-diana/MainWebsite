@@ -15,6 +15,7 @@ const Homepage = () => {
     const { language } = useLanguage();
     const content = TRANSLATIONS[language];
     const [sendingEmail, setSendingEmail] = useState<boolean>(false);
+    const [formErrors, setFormErrors] = useState<boolean>(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -31,14 +32,21 @@ const Homepage = () => {
     };
 
     const sendEmail = (e) => {
-        setSendingEmail(true);
         e.preventDefault();
 
-        if (!captchaValue) {
-            toast.error(content.contacts.form.recaptcha, {
+        if (
+            !captchaValue ||
+            !formData.email ||
+            !formData.message ||
+            !formData.name
+        ) {
+            setFormErrors(true)
+            toast.error(content.contacts.form.fieldsError, {
                 position: "top-right",
             });
         } else {
+            setSendingEmail(true);
+            setFormErrors(false)
             emailjs
                 .send(
                     process.env.REACT_APP_EMAILJS_SERVICE_ID!,
@@ -197,7 +205,7 @@ const Homepage = () => {
                 <img
                     data-aos="fade-left"
                     src="1733157254607.jpg"
-                    alt="fotografia de Diana Fonte"
+                    alt="Fotografia da Diana Fonte, fundadora da Divode"
                     className="rounded w-50 w-sm-25 h-auto"
                 ></img>
             </section>
@@ -229,9 +237,13 @@ const Homepage = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                required
                                 disabled={sendingEmail}
                             ></Form.Control>
+                            {formErrors && formData.name === "" && (
+                                <Form.Text className="text-danger">
+                                    {content.contacts.form.mandatoryError}
+                                </Form.Text>
+                            )}
                         </Form.Group>
 
                         <Form.Group className="w-100">
@@ -248,9 +260,13 @@ const Homepage = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                required
                                 disabled={sendingEmail}
                             ></Form.Control>
+                            {formErrors && !formData.email && (
+                                <Form.Text className="text-danger">
+                                    {content.contacts.form.mandatoryError}
+                                </Form.Text>
+                            )}
                         </Form.Group>
 
                         <Form.Group className="w-100">
@@ -268,9 +284,13 @@ const Homepage = () => {
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                required
                                 disabled={sendingEmail}
                             ></Form.Control>
+                            {formErrors && !formData.message && (
+                                <Form.Text className="text-danger">
+                                    {content.contacts.form.mandatoryError}
+                                </Form.Text>
+                            )}
                         </Form.Group>
 
                         <div className="float-end d-flex flex-column gap-3 align-items-center">
