@@ -37,6 +37,7 @@ export const TRANSLATIONS = [
             subtitle: "Entre em contacto preenchendo o formulário abaixo e solicite o seu orçamento gratuitamente.",
             form:{
                 mandatory: "Obrigatório",
+                mandatoryError: "Este campo é obrigatório.",
                 label1: "Nome",
                 label2: "Telefone",
                 label3: "Email",
@@ -44,7 +45,7 @@ export const TRANSLATIONS = [
                 submit: "Enviar",
                 success: "Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.",
                 error: "Não foi possível enviar a mensagem! Por favor tente outra vez mais tarde ou envie-nos um email directamente. Pedimos desculpa pelo incómodo.",
-                recaptcha: "Por favor preencha o CAPTCHA."
+                fieldsError: "Por favor preencha todos os campos necessários e o CAPTCHA."
             }
         },
         footer: {
@@ -102,6 +103,7 @@ export const TRANSLATIONS = [
             subtitle: "Get in touch by filling out the form below and get your free quote.",
             form:{
                 mandatory: "Mandatory",
+                mandatoryError: "This field is mandatory.",
                 label1: "Name",
                 placeholder1: "Name",
                 label2: "Phone",
@@ -113,7 +115,7 @@ export const TRANSLATIONS = [
                 submit: "Send",
                 success: "Message sent with success! We will contact you soon.",
                 error: "There was an error sending your message! Please try again or send us an email to our email address. We are sorry for the incovenience.",
-                recaptcha: "Please complete the CAPTCHA."
+                fieldsError: "Please complete all necessary fields and the CAPTCHA."
             }
         },
         footer: {

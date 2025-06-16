@@ -38,51 +38,59 @@ function App() {
 
     return (
         <>
-            <div role="navigation" className="position-absolute top-0 w-100 d-flex justify-content-center">
-                <HashLink
-                    smooth
-                    to={"./#main"}
-                    className="w-fit-content rounded-bottom py-3 px-4 bg-white opacity-0 opacity-focus-1"
+            <header className="d-flex justify-content-center">
+                <div
+                    title="skip to main content"
+                    className="position-absolute top-0 w-100 d-flex justify-content-center"
                 >
-                    {content.skipToMain}
-                </HashLink>
-            </div>
-            <div className="z-1 w-100 d-flex justify-content-center position-absolute top-0 mt-4">
-                <header className="d-flex align-items-center justify-content-between h-30px h-md-50px maxw-md-80 w-100 px-4 px-md-0">
-                    <HashLink smooth to={"./#landing"}>
-                        <h1>
-                            <img
-                                src={
-                                    location.pathname === "/rgpd" ||
-                                    location.pathname === "/termos"
-                                        ? "./logo_color.png"
-                                        : "./divode_logo.png"
-                                }
-                                alt="Divode logotipo"
-                                className="h-30px h-md-50px w-auto"
-                            />
-                        </h1>
+                    <HashLink
+                        smooth
+                        to={"./#main"}
+                        className="w-fit-content rounded-bottom py-3 px-4 bg-white opacity-0 opacity-focus-1"
+                    >
+                        {content.skipToMain}
                     </HashLink>
-                    <nav>
-                        <Button
-                            variant="Link"
-                            onClick={toggleLanguage}
-                            className="d-flex align-items-center gap-2"
-                        >
-                            {language === LANGUAGES.pt ? "EN" : "PT"}
-                            <img
-                                src={
-                                    language === LANGUAGES.pt
-                                        ? "./flag/GB.svg"
-                                        : "./flag/PT.svg"
-                                }
-                                alt="language flag"
-                                className="h-15px w-auto"
-                            />
-                        </Button>
-                    </nav>
-                </header>
-            </div>
+                </div>
+
+                <nav className="maxw-md-80 z-1 w-100 d-flex justify-content-center position-absolute top-0 mt-4">
+                    <ul className="d-flex align-items-center justify-content-between w-100 h-30px h-md-50px px-4 px-md-0">
+                        <li>
+                            <HashLink smooth to={"./#landing"}>
+                                <h1>
+                                    <img
+                                        src={
+                                            location.pathname === "/rgpd" ||
+                                            location.pathname === "/termos"
+                                                ? "./logo_color.png"
+                                                : "./divode_logo.png"
+                                        }
+                                        alt="Divode - Criação de sites e design gráfico"
+                                        className="h-30px h-md-50px w-auto"
+                                    />
+                                </h1>
+                            </HashLink>
+                        </li>
+                        <li>
+                            <Button
+                                variant="Link"
+                                onClick={toggleLanguage}
+                                className="d-flex align-items-center gap-2"
+                            >
+                                {language === LANGUAGES.pt ? "EN" : "PT"}
+                                <img
+                                    src={
+                                        language === LANGUAGES.pt
+                                            ? "./flag/GB.svg"
+                                            : "./flag/PT.svg"
+                                    }
+                                    alt="language flag"
+                                    className="h-15px w-auto"
+                                />
+                            </Button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
 
             <main
                 id="main"
@@ -102,14 +110,14 @@ function App() {
                         className="email"
                         target="_blank"
                         rel="noopener noreferrer"
-                        title="Email"
+                        title="Contactar através do email"
                     >
                         <Icon icon="envelope" />
                     </a>
                     <Link
                         to={"https://www.linkedin.com/company/divode"}
                         target="_blank"
-                        title="LinkedIn"
+                        title="Aceder à página do LinkedIn"
                     >
                         <Icon icon="linkedin" type="brands" />
                     </Link>

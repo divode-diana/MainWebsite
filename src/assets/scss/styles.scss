@@ -27,8 +27,10 @@ a,
     color: $red;
     font-weight: 700;
 
-    &:hover, &:focus {
-        color: $red-dark;
+    &:hover,
+    &:focus, &:active {
+        border-color: $red;
+        color: $red;
     }
 }
 
@@ -56,6 +58,10 @@ button.btn.btn-primary,
     border: 0;
     box-shadow: 1px 1px 5px #f1f0ea;
     padding: 1rem;
+}
+
+ul {
+    list-style-type: none;
 }
 
 // ________________ SIZES ________________
@@ -136,7 +142,7 @@ button.btn.btn-primary,
 
 // ________________ LAYOUT ________________
 
-.mt-5rem{
+.mt-5rem {
     margin-top: 5rem !important;
 }
 
@@ -146,7 +152,7 @@ button.btn.btn-primary,
     background-position: right;
 }
 
-.opacity-focus-1:focus{
+.opacity-focus-1:focus {
     opacity: 1 !important;
 }
 
