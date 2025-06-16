@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.cbc81a20.css",
-    "main.js": "/static/js/main.882c07d2.js",
+    "main.css": "/static/css/main.d6227b6e.css",
+    "main.js": "/static/js/main.74851589.js",
     "static/media/landing_bg.png": "/static/media/landing_bg.409c9e714ff6f6c305bf.png",
     "static/media/OpenSans.ttf": "/static/media/OpenSans.19ba637387f1d6142f55.ttf",
     "static/media/AdventPro.ttf": "/static/media/AdventPro.1cb1240c15712e28f84f.ttf",
     "index.html": "/index.html",
-    "main.cbc81a20.css.map": "/static/css/main.cbc81a20.css.map",
-    "main.882c07d2.js.map": "/static/js/main.882c07d2.js.map"
+    "main.d6227b6e.css.map": "/static/css/main.d6227b6e.css.map",
+    "main.74851589.js.map": "/static/js/main.74851589.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbc81a20.css",
-    "static/js/main.882c07d2.js"
+    "static/css/main.d6227b6e.css",
+    "static/js/main.74851589.js"
   ]
 }
