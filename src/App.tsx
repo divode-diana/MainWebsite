@@ -61,8 +61,8 @@ function App() {
                                         src={
                                             location.pathname === "/rgpd" ||
                                             location.pathname === "/termos"
-                                                ? "./logo_color.png"
-                                                : "./divode_logo.png"
+                                                ? "./divode_logo_color.svg"
+                                                : "./divode_logo.svg"
                                         }
                                         alt="Divode - Criação de sites e design gráfico"
                                         className="h-30px h-md-50px w-auto"
