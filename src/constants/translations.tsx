@@ -51,7 +51,8 @@ export const TRANSLATIONS = [
         footer: {
             copyright: "© 2025 Divode - Diana Fonte. Todos os direitos reservados.",
             rgpd: "Política de Privacidade",
-            termos: "Termos e Condições"
+            termos: "Termos e Condições",
+            acessibilidade: "Acessibilidade e Usabilidade"
         },
         rgpd_terms:{
             back: "Voltar",
@@ -115,7 +116,8 @@ export const TRANSLATIONS = [
         footer: {
             copyright: "© 2025 Divode - Diana Fonte. All rights reserved.",
             rgpd: "Privacy policy",
-            termos: "Terms and conditions"
+            termos: "Terms and conditions",
+            acessibilidade: "Acessibility and Usability"
         },
         rgpd_terms:{
             back: "Go back",

@@ -11,6 +11,7 @@ import { LANGUAGES } from "./constants/enums";
 import { useLanguage } from "./context/LanguageContext";
 import { TRANSLATIONS } from "./constants/translations";
 import { useLocation } from "react-router-dom";
+import Acessibilidade from "./pages/Acessibilidade";
 
 const loadFontAwesome = () => {
     const kitId = process.env.REACT_APP_FONTAWESOME_KIT_KEY;
@@ -100,6 +101,7 @@ function App() {
                     <Route path="/" element={<Homepage />} />
                     <Route path="/rgpd" element={<RGPD />} />
                     <Route path="/termos" element={<Termos />} />
+                    <Route path="/acessibilidade" element={<Acessibilidade />} />
                 </Routes>
             </main>
 
@@ -128,6 +130,7 @@ function App() {
                 <div className="d-flex flex-column flex-md-row gap-4 align-items-center fs-8">
                     <Link to={"/rgpd"}>{content.footer.rgpd}</Link>
                     <Link to={"/termos"}>{content.footer.termos}</Link>
+                    <Link to={"/acessibilidade"}>{content.footer.acessibilidade}</Link>
                 </div>
             </footer>
         </>
