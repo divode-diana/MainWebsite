@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
-import Icon from "../components/Icon";
+import Icon from "../shared/Icon";
 import { useLanguage } from "../context/LanguageContext";
 import { TRANSLATIONS } from "../constants/translations";
 import { LANGUAGES } from "../constants/enums";

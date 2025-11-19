@@ -2,6 +2,15 @@ export const TRANSLATIONS = [
     {
         locale: 'pt',
         skipToMain: 'Saltar para o conteúdo principal',
+        header: {
+            logo: "Divode Serviços Digitais Logotipo",
+            menu: {
+                opt1: "Serviços",
+                opt2: "Sobre",
+                opt3: "Contactos"
+            },
+            cta: "Entre em contacto",
+        },
         landing: {
             title: "Serviços Digitais",
             subtitle: "Eleve o seu negócio a novos níveis!",
@@ -63,6 +72,15 @@ export const TRANSLATIONS = [
     {   
         locale: 'en',
         skipToMain: 'Skip to main content',
+        header: {
+            logo: "Divode Digital Services Logotype",
+            menu: {
+                opt1: "Services",
+                opt2: "About",
+                opt3: "Contacts"
+            },
+            cta: "Contact us",
+        },
         landing: {
             title: "Digital Services",
             subtitle: "Lift your business to new levels!",

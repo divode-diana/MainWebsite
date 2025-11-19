@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { TRANSLATIONS } from "../constants/translations";
 import { useLanguage } from "../context/LanguageContext";
-import Icon from "../components/Icon";
+import Icon from "../shared/Icon";
 import { HashLink } from "react-router-hash-link";
 import { LANGUAGES } from "../constants/enums";
 

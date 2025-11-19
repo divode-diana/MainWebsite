@@ -9,6 +9,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     position: relative;
     min-height: 100vh;
+    background-color: $light;
 }
 
 // ________________ HTML ELEMENTS ________________
@@ -28,7 +29,8 @@ a,
     font-weight: 700;
 
     &:hover,
-    &:focus, &:active {
+    &:focus,
+    &:active {
         border-color: $red;
         color: $red;
     }
@@ -43,6 +45,7 @@ button.btn.btn-primary,
     width: fit-content;
     font-weight: bold;
     border: 0;
+    border-radius: 25px;
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
@@ -50,6 +53,28 @@ button.btn.btn-primary,
 
     &:hover {
         background-color: $red-dark;
+    }
+}
+
+button.btn.btn-outline-primary,
+.btn.btn-outline-primary {
+    background-color: transparent;
+    min-width: 44px;
+    min-width: 44px;
+    color: $dark;
+    width: fit-content;
+    font-weight: bold;
+    border: 1px solid $red;
+    border-radius: 25px;
+    padding: 0.45rem 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+        background-color: $red-dark;
+        border-color: $red-dark;
+        color: $white;
     }
 }
 
@@ -65,8 +90,8 @@ ul {
 }
 
 // ________________ SIZES ________________
-.h-30px {
-    height: 30px;
+.h-40px {
+    height: 40px;
 }
 
 .h-15px {
@@ -77,8 +102,19 @@ ul {
     min-height: 100vh;
 }
 
+.w-90 {
+    width: 90% !important;
+}
+
 .maxw-100 {
     max-width: 100% !important;
+}
+
+.w-content {
+    max-width: min(1700px, 90vw);
+    width: 100%;
+    margin: 0 auto;
+
 }
 
 @include media-breakpoint-up(sm) {
@@ -112,6 +148,10 @@ ul {
     font-size: 5rem !important;
 }
 
+.fs-7{
+    font-size: 0.85rem;
+}
+
 .fs-8 {
     font-size: 0.7rem;
 }
@@ -132,8 +172,13 @@ ul {
     color: $teal;
 }
 
-.text-red-dark {
-    color: $red-dark;
+.text-red-dark,
+.text-dark-red-hover:hover {
+    color: $red-dark !important;
+}
+
+.text-decoration-underline-hover:hover {
+    text-decoration: underline !important;
 }
 
 // ________________ LAYOUT ________________
@@ -162,4 +207,11 @@ ul {
     .gap-lg-8 {
         gap: 8rem !important;
     }
+}
+
+// ________________ COLORS ________________
+
+.bg-glass-white{
+    background-color: #fffffff1;
+    box-shadow: 0px 4px 20px 4px #00000010;
 }
