@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { HashLink } from "react-router-hash-link";
 import Icon from "../shared/Icon";
 import { useLanguage } from "../context/LanguageContext";
 import { TRANSLATIONS } from "../constants/translations";
 import { LANGUAGES } from "../constants/enums";
 import { Button, Card, Form, Spinner } from "react-bootstrap";
+import { useFormik } from "formik";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -15,54 +16,101 @@ const Homepage = () => {
     const { language } = useLanguage();
     const content = TRANSLATIONS[language];
     const [sendingEmail, setSendingEmail] = useState<boolean>(false);
-    const [formErrors, setFormErrors] = useState<boolean>(false);
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
-    const [captchaValue, setCaptchaValue] = useState(null);
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    // Services Scroll Logic
+    const servicesRef = useRef<HTMLDivElement>(null);
+    const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
 
-    const handleCaptchaChange = (value) => {
+    useEffect(() => {
+        const handleScroll = () => {
+            if (servicesRef.current) {
+                const { top, height } =
+                    servicesRef.current.getBoundingClientRect();
+                const scrollPosition = -top;
+                const sectionHeight = height - window.innerHeight; // Scrollable distance
+
+                if (scrollPosition >= 0 && scrollPosition <= sectionHeight) {
+                    const progress = scrollPosition / sectionHeight;
+                    // Ensure index is within bounds
+                    const index = Math.min(
+                        Math.max(
+                            0,
+                            Math.floor(progress * content.services.list.length)
+                        ),
+                        content.services.list.length - 1
+                    );
+                    setCurrentServiceIndex(index);
+                } else if (scrollPosition < 0) {
+                    setCurrentServiceIndex(0);
+                } else if (scrollPosition > sectionHeight) {
+                    setCurrentServiceIndex(content.services.list.length - 1);
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [content.services.list.length]);
+
+    const handleCaptchaChange = (value: string | null) => {
         setCaptchaValue(value);
     };
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            message: "",
+        },
+        validate: (values) => {
+            const errors: { name?: string; email?: string; message?: string } =
+                {};
+            if (!values.name) {
+                errors.name = content.contacts.form.mandatoryError;
+            }
+            if (!values.email) {
+                errors.email = content.contacts.form.mandatoryError;
+            } else if (
+                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+            ) {
+                errors.email = "Invalid email address";
+            }
+            if (!values.message) {
+                errors.message = content.contacts.form.mandatoryError;
+            }
+            return errors;
+        },
+        onSubmit: (values, { resetForm }) => {
+            if (!captchaValue) {
+                toast.error(content.contacts.form.fieldsError, {
+                    position: "top-right",
+                });
+                return;
+            }
 
-        if (
-            !captchaValue ||
-            !formData.email ||
-            !formData.message ||
-            !formData.name
-        ) {
-            setFormErrors(true)
-            toast.error(content.contacts.form.fieldsError, {
-                position: "top-right",
-            });
-        } else {
             setSendingEmail(true);
-            setFormErrors(false)
             emailjs
                 .send(
                     process.env.REACT_APP_EMAILJS_SERVICE_ID!,
                     language === LANGUAGES.pt
                         ? process.env.REACT_APP_EMAILJS_TEMPLATE_ID_PT!
                         : process.env.REACT_APP_EMAILJS_TEMPLATE_ID_ENG!,
-                    formData,
-                    process.env.REACT_APP_EMAILJS_USER_ID // Replace with your EmailJS Public Key
+                    {
+                        name: values.name,
+                        email: values.email,
+                        message: values.message,
+                    },
+                    process.env.REACT_APP_EMAILJS_USER_ID
                 )
                 .then(
-                    (response) => {
+                    () => {
                         setSendingEmail(false);
                         toast.success(content.contacts.form.success, {
                             position: "top-right",
                         });
-                        setFormData({ name: "", email: "", message: "" });
+                        resetForm();
+                        setCaptchaValue(null);
                     },
                     (error) => {
                         setSendingEmail(false);
@@ -72,111 +120,85 @@ const Homepage = () => {
                         console.log(error);
                     }
                 );
-        }
-    };
+        },
+    });
 
     useEffect(() => {
         AOS.init();
     }, []);
 
     return (
-        <div className="d-flex align-items-center justify-content-center flex-column gap-5 gap-lg-8">
+        <div className="d-flex align-items-center justify-content-center flex-column gap-4">
+            {/* ________________ LANDING ________________ */}
             <section
                 id="landing"
-                className="d-flex flex-column gap-4 align-items-center justify-content-center minh-100 w-100 overflow-clip px-5"
+                className="d-flex flex-column gap-4 align-items-center justify-content-between minh-100 w-content py-4"
             >
-                <h2 className="text-white fs-1 text-center">
-                    {content.landing.title}
-                </h2>
-                <h3 className="text-white fs-4 text-center">
-                    {content.landing.subtitle}
-                </h3>
-                <HashLink
-                    smooth
-                    to={"./#contacts"}
-                    className={"btn btn-primary"}
-                >
-                    {content.landing.cta}
-                </HashLink>
-            </section>
-
-            <section
-                data-aos="fade-up"
-                id="services"
-                className="maxw-md-80 mx-auto px-4 px-md-0"
-            >
-                <h2>{content.services.title}</h2>
-                <p>{content.services.subtitle}</p>
-                <div className="container maxw-100 mt-4 p-0">
-                    <div className="row g-4 d-flex flex-wrap">
-                        <div className="col-12 col-sm-6 col-lg-3">
-                            <Card className="gap-2 h-100">
-                                <Icon
-                                    icon="palette"
-                                    classes="text-light-blue"
-                                />
-                                <h3 className="fs-4 m-0">
-                                    {content.services.design.title}
-                                </h3>
-                                <p
-                                    className="m-0"
-                                    dangerouslySetInnerHTML={{
-                                        __html: content.services.design.hmtl,
-                                    }}
-                                ></p>
-                            </Card>
-                        </div>
-                        <div className="col-12 col-sm-6 col-lg-3">
-                            <Card className="gap-2 h-100">
-                                <Icon icon="code" classes="text-teal" />
-                                <h3 className="fs-4 m-0">
-                                    {content.services.development.title}
-                                </h3>
-                                <p
-                                    className="m-0"
-                                    dangerouslySetInnerHTML={{
-                                        __html: content.services.development
-                                            .html,
-                                    }}
-                                ></p>
-                            </Card>
-                        </div>
-                        <div className="col-12 col-sm-6 col-lg-3">
-                            <Card className="gap-2 h-100">
-                                <Icon icon="wifi" classes="text-blue" />
-                                <h3 className="fs-4 m-0">
-                                    {content.services.domains.title}
-                                </h3>
-                                <p
-                                    className="m-0"
-                                    dangerouslySetInnerHTML={{
-                                        __html: content.services.domains.html,
-                                    }}
-                                ></p>
-                            </Card>
-                        </div>
-                        <div className="col-12 col-sm-6 col-lg-3">
-                            <Card className="gap-2 h-100">
-                                <Icon
-                                    icon="screwdriver-wrench"
-                                    classes="text-dark-blue"
-                                />
-                                <h3 className="fs-4 m-0">
-                                    {content.services.management.title}
-                                </h3>
-                                <p
-                                    className="m-0"
-                                    dangerouslySetInnerHTML={{
-                                        __html: content.services.management
-                                            .html,
-                                    }}
-                                ></p>
-                            </Card>
-                        </div>
-                    </div>
+                <div></div>
+                <div className="d-flex flex-column gap-4 align-items-center mt-4">
+                    <h2 className="title text-center w-md-75">
+                        {content.landing.title}
+                    </h2>
+                    <p
+                        className="m-0 text-center w-md-50"
+                        dangerouslySetInnerHTML={{
+                            __html: content.landing.subtitle,
+                        }}
+                    ></p>
+                    <HashLink
+                        smooth
+                        to={"./#contacts"}
+                        className={"btn btn-primary"}
+                    >
+                        {content.landing.cta}
+                    </HashLink>
+                </div>
+                <div className="d-flex flex-column align-items-center gap-2">
+                    <p className="mb-0 fs-8">{content.landing.scroll}</p>
+                    <img src="./mouse.svg" alt="" />
                 </div>
             </section>
 
+            {/* ________________ SERVICES ________________ */}
+            <section
+                id="services"
+                ref={servicesRef}
+                className="position-relative w-100"
+            >
+                <div className="sticky-top vh-100 d-flex flex-column justify-content-between align-items-center py-5 w-content mx-auto">
+                    {/* Top Text */}
+                    <p
+                        className="w-md-75 text-center mt-5 pt-5"
+                        dangerouslySetInnerHTML={{
+                            __html: content.services.topText,
+                        }}
+                    ></p>
+
+                    {/* Bottom Text */}
+                    <p
+                        className="fs-4 fw-semibold text-center"
+                        dangerouslySetInnerHTML={{
+                            __html: content.services.bottomText,
+                        }}
+                    />
+                </div>
+
+                <div>
+                    {/* Middle Text (Services) */}
+                    {content.services.list.map((service, index) => (
+                        <div className="vh-100 d-flex flex-column align-items-center justify-content-center gap-4 py-4">
+                            <h2
+                                key={index}
+                                className="display-1 fw-bold text-center m-0"
+                            >
+                                {service}
+                            </h2>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* ________________ ABOUT ________________ */}
             <section
                 id="about"
                 className="d-flex flex-column-reverse flex-md-row gap-4 maxw-md-80 mx-auto px-4 px-md-0 align-items-start align-items-xl-stretch"
@@ -210,6 +232,7 @@ const Homepage = () => {
                 ></img>
             </section>
 
+            {/* ________________ CONTACTS ________________ */}
             <section
                 data-aos="fade-up"
                 id="contacts"
@@ -220,7 +243,7 @@ const Homepage = () => {
 
                 <Card className="mt-4 w-100">
                     <Form
-                        onSubmit={sendEmail}
+                        onSubmit={formik.handleSubmit}
                         className="d-flex flex-column gap-3"
                     >
                         <Form.Group className="w-100">
@@ -235,15 +258,21 @@ const Homepage = () => {
                                 type="text"
                                 placeholder={content.contacts.form.placeholder1}
                                 name="name"
-                                value={formData.name}
-                                onChange={handleChange}
+                                value={formik.values.name}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
                                 disabled={sendingEmail}
+                                isInvalid={
+                                    !!formik.touched.name &&
+                                    !!formik.errors.name
+                                }
                             ></Form.Control>
-                            {formErrors && formData.name === "" && (
-                                <Form.Text className="text-red-dark">
-                                    {content.contacts.form.mandatoryError}
-                                </Form.Text>
-                            )}
+                            <Form.Control.Feedback
+                                type="invalid"
+                                className="text-red-dark"
+                            >
+                                {formik.errors.name}
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group className="w-100">
@@ -258,15 +287,21 @@ const Homepage = () => {
                                 type="email"
                                 placeholder={content.contacts.form.placeholder3}
                                 name="email"
-                                value={formData.email}
-                                onChange={handleChange}
+                                value={formik.values.email}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
                                 disabled={sendingEmail}
+                                isInvalid={
+                                    !!formik.touched.email &&
+                                    !!formik.errors.email
+                                }
                             ></Form.Control>
-                            {formErrors && !formData.email && (
-                                <Form.Text className="text-red-dark">
-                                    {content.contacts.form.mandatoryError}
-                                </Form.Text>
-                            )}
+                            <Form.Control.Feedback
+                                type="invalid"
+                                className="text-red-dark"
+                            >
+                                {formik.errors.email}
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <Form.Group className="w-100">
@@ -282,20 +317,26 @@ const Homepage = () => {
                                 rows={10}
                                 placeholder={content.contacts.form.placeholder4}
                                 name="message"
-                                value={formData.message}
-                                onChange={handleChange}
+                                value={formik.values.message}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
                                 disabled={sendingEmail}
+                                isInvalid={
+                                    !!formik.touched.message &&
+                                    !!formik.errors.message
+                                }
                             ></Form.Control>
-                            {formErrors && !formData.message && (
-                                <Form.Text className="text-red-dark">
-                                    {content.contacts.form.mandatoryError}
-                                </Form.Text>
-                            )}
+                            <Form.Control.Feedback
+                                type="invalid"
+                                className="text-red-dark"
+                            >
+                                {formik.errors.message}
+                            </Form.Control.Feedback>
                         </Form.Group>
 
                         <div className="float-end d-flex flex-column gap-3 align-items-center">
                             <ReCAPTCHA
-                                sitekey={process.env.REACT_APP_RECAPTCHA_KEY}
+                                sitekey={process.env.REACT_APP_RECAPTCHA_KEY!}
                                 onChange={handleCaptchaChange}
                             />
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Icon from "./Icon";
+
 import { TRANSLATIONS } from "../constants/translations";
 import { useLanguage } from "../context/LanguageContext";
 

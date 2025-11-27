@@ -49,6 +49,9 @@
     ]
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/react-google-recaptcha": "^2.1.9",
+    "@types/react-router-hash-link": "^2.4.9",
     "gh-pages": "^6.3.0"
   },
   "homepage": "https://divode.io"

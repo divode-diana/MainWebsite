@@ -12,29 +12,22 @@ export const TRANSLATIONS = [
             cta: "Entre em contacto",
         },
         landing: {
-            title: "Serviços Digitais",
-            subtitle: "Eleve o seu negócio a novos níveis!",
-            cta: "Entre em contacto"
+            title: "Eleve os seus projetos a novos níveis!",
+            subtitle: "Criamos <span class='animated-underline'>soluções digitais</span> modernas que ajudam as suas ideias a destacarem-se, ganharem confiança e crescer online.",
+            cta: "Trabalhe connosco",
+            scroll: "Scroll para baixo"
         },
         services: {
-            title: "Os Nossos Serviços",
-            subtitle: "Oferecemos soluções digitais personalizadas para impulsionar o seu negócio.",
-            design: {
-                title: "Branding, Web Design e Design Gráfico",
-                hmtl: "Criação de identidade visual e design gráfico."
-            },
-            development: {
-                title: "Desenvolvimento Web",
-                html: "Desenvolvimento de sites funcionais e responsivos."
-            },
-            domains: {
-                title: "Domínios e Alojamento",
-                html: "Hospedagem confiável e segura."
-            },
-            management: {
-                title: "Gestão e Manutenção",
-                html: "Manutenção contínua para seu site."
-            },
+            topText: "Branding, design, desenvolvimento e suporte contínuo, tudo integrado. <br/> Menos complicações, mais consistência, zero tempo perdido.",
+            bottomText: "Um parceiro para <span class='animated-underline fw-bold'>tudo o que precisa</span> online.",
+            list: [
+                "Branding",
+                "Design Web",
+                "Design Gráfico",
+                "Desenvolvimento Web",
+                "Domínios & Hosting",
+                "Gestão & Manutenção"
+            ],
         },
         about: {
             p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank'>Diana Fonte</a>, fundadora da Divode — Especialista em Desenvolvimento Web",
@@ -48,9 +41,13 @@ export const TRANSLATIONS = [
                 mandatory: "Obrigatório",
                 mandatoryError: "Este campo é obrigatório.",
                 label1: "Nome",
+                placeholder1: "Nome",
                 label2: "Telefone",
+                placeholder2: "+351910000000",
                 label3: "Email",
+                placeholder3: "name@example.com",
                 label4: "Mensagem",
+                placeholder4: "Escreva a sua mensagem aqui.",
                 submit: "Enviar",
                 success: "Mensagem enviada com sucesso! Entraremos em contacto consigo brevemente.",
                 error: "Não foi possível enviar a mensagem! Por favor tente outra vez mais tarde ou envie-nos um email directamente. Pedimos desculpa pelo incómodo.",
@@ -82,29 +79,22 @@ export const TRANSLATIONS = [
             cta: "Contact us",
         },
         landing: {
-            title: "Digital Services",
-            subtitle: "Lift your business to new levels!",
-            cta: "Contact us"
+            title: "Lift your projects to new levels!",
+            subtitle: "We create modern <span class='animated-underline'>digital solutions</span> that help your ideas stand out, build trust, and grow online.",
+            cta: "Work with us",
+            scroll: "Scroll down"
         },
         services: {
-            title: "Our services",
-            subtitle: "We offer personalized digital solutions to grow your business.",
-            design: {
-                title: "Branding, Web Design and Graphic Design",
-                hmtl: "Creation of a visual identity and graphic design."
-            },
-            development: {
-                title: "Web Development",
-                html: "Development of functional and responsive websites."
-            },
-            domains: {
-                title: "Domains and Hosting",
-                html: "Trustworthy and secure hosting."
-            },
-            management: {
-                title: "Management and Maintenance",
-                html: "Continuous maintenance of your website."
-            },
+            topText: "Branding, design, development and continuous support, all integrated. <br/> Less complications, more consistency, zero wasted time.",
+            bottomText: "One partner for <span className='animated-underline fw-bold'>everything you need</span> online.",
+            list: [
+                "Branding",
+                "Web Design",
+                "Graphic Design",
+                "Web Development",
+                "Domains & Hosting",
+                "Management & Maintenance"
+            ],
         },
         about: {
             p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank'>Diana Fonte</a>, founder of Divode — Specialist in Web Development",

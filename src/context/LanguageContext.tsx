@@ -11,7 +11,7 @@ const LanguageContext = createContext<languagesType>({
     toggleLanguage: () => {}
 });
 
-const LanguageProvider = ({ children }) => {
+const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [lang, setLang] = useState<LANGUAGES>(localStorage.getItem("lang") 
     ?  JSON.parse(localStorage.getItem("lang")!) === LANGUAGES.pt
       ? LANGUAGES.pt

@@ -23,21 +23,21 @@ const Header = () => {
                 </HashLink>
             </div>
 
-            <nav className="w-content z-1 d-flex justify-content-center align-items-center position-fixed top-0 mt-4 bg-glass-white rounded-pill">
-                <ul className="d-flex align-items-center justify-content-between w-100 px-3 py-1 m-0">
+            <nav className="w-content z-1 d-flex justify-content-center align-items-center position-fixed top-0 mt-3 mt-md-4 bg-glass-white rounded-pill">
+                <ul className="d-flex align-items-center justify-content-between w-100 px-2 py-1 m-0">
                     <div className="d-flex gap-4 align-items-center">
                         <li>
                             <HashLink smooth to={"/#landing"}>
-                                <h1 className="my-1">
+                                <h1 className="my-1 d-flex">
                                     <img
                                         src="./divode_logo_color.svg"
                                         alt={content.header.logo}
-                                        className="h-40px h-md-50px w-auto"
+                                        className="h-40px w-auto"
                                     />
                                 </h1>
                             </HashLink>
                         </li>
-                        <div className="d-none d-md-flex gap-4 align-items-center">
+                        <div className="d-none d-lg-flex gap-4 align-items-center">
                             <li>
                                 <HashLink
                                     smooth
@@ -83,7 +83,7 @@ const Header = () => {
                             <Button
                                 variant="outline-primary"
                                 onClick={toggleLanguage}
-                                className="d-flex align-items-center gap-2 fs-7"
+                                className="d-flex align-items-center gap-2 fs-7 h-100"
                             >
                                 {language === LANGUAGES.pt ? "EN" : "PT"}
                                 <img
