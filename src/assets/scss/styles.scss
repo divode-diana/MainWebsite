@@ -34,13 +34,17 @@ a,
         border-color: $red;
         color: $red;
     }
+
+    &.text-dark {
+        color: $dark;
+    }
 }
 
 button.btn.btn-primary,
 .btn.btn-primary {
     background-color: $red;
     min-width: 44px;
-    min-width: 44px;
+    min-height: 44px;
     color: $white;
     width: fit-content;
     font-weight: bold;
@@ -60,7 +64,7 @@ button.btn.btn-outline-primary,
 .btn.btn-outline-primary {
     background-color: transparent;
     min-width: 44px;
-    min-width: 44px;
+    min-height: 44px;
     color: $dark;
     width: fit-content;
     font-weight: bold;
@@ -78,8 +82,29 @@ button.btn.btn-outline-primary,
     }
 }
 
+button.btn.btn-secondary,
+.btn.btn-secondary {
+    background-color: $blue-500;
+    min-width: 55px;
+    min-height: 55px;
+    color: $white;
+    width: fit-content;
+    font-weight: bold;
+    border: 0;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+        background-color: $blue-800;
+    }
+}
+
 .card {
-    background-color: $light;
+    background-color: #ffffff99;
+    border-radius: 20px;
     border: 0;
     box-shadow: 1px 1px 5px #f1f0ea;
     padding: 1rem;
@@ -98,6 +123,10 @@ ul {
     height: 15px;
 }
 
+.h-90vh {
+    height: 90vh;
+}
+
 .minh-100 {
     min-height: 100vh;
 }
@@ -114,7 +143,6 @@ ul {
     max-width: min(1700px, 90vw);
     width: 100%;
     margin: 0 auto;
-
 }
 
 @include media-breakpoint-up(sm) {
@@ -141,6 +169,10 @@ ul {
     .w-lg-25 {
         width: 25% !important;
     }
+
+    .w-lg-60 {
+        width: 60% !important;
+    }
 }
 
 // ________________ TEXT ________________
@@ -149,11 +181,11 @@ ul {
 }
 @include media-breakpoint-up(lg) {
     .title {
-    font-size: 70px !important;
-}
+        font-size: 70px !important;
+    }
 }
 
-.fs-7{
+.fs-7 {
     font-size: 0.85rem;
 }
 
@@ -162,19 +194,19 @@ ul {
 }
 
 .text-light-blue {
-    color: $blue-light;
+    color: $blue-200;
 }
 
 .text-blue {
-    color: $blue;
+    color: $blue-500;
 }
 
-.text-dark-blue {
-    color: $blue-dark;
+.text-blue-dark {
+    color: $blue-800;
 }
 
 .text-teal {
-    color: $teal;
+    color: $teal-500;
 }
 
 .text-red-dark,
@@ -190,6 +222,18 @@ ul {
 
 .mt-5rem {
     margin-top: 5rem !important;
+}
+
+.mt-6 {
+    margin-top: 4rem;
+}
+
+.mt-n45 {
+    margin-top: -45rem;
+}
+
+.z-4 {
+    z-index: 4;
 }
 
 .opacity-focus-1:focus {
@@ -210,37 +254,55 @@ ul {
 
 // ________________ COLORS ________________
 
-.bg-glass-white{
-    background-color: #fffffff1;
+.bg-glass-white {
+    background-color: #fff;
     box-shadow: 0px 4px 20px 4px #00000010;
 }
+
+.bg-glass-light {
+    background-color: #f1f0ea95;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 0 15px 10px #f1f0ea95;
+}
+
+.bg-blue {
+    background-color: $blue-500;
+}
+
+.text-white {
+    color: $white;
+}
+
+.about-card-0 {
+    background-color: $blue-50;
+}
+.about-card-1 {
+    background-color: $white;
+}
+.about-card-2 {
+    background-color: $teal-300;
+}
+.about-card-3 {
+    background-color: $light;
+}
+
 // ________________ ANIMATIONS ________________
 
 .animated-underline {
-    position: relative;
-    display: inline-block;
-    font-weight: bold;
-
-    &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 2px;
-        width: 0;
-        height: 3px;
-        border-radius: 3px;
-        background-color: $blue-light;
-        animation: underline-slide 1s ease-out forwards;
-        animation-delay: 0.5s;
-        z-index: -1;
-    }
+    text-decoration: none;
+    background-image: linear-gradient($blue-200, $blue-200);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 3px;
+    padding-bottom: 0.12em; /* space for underline */
 }
 
-@keyframes underline-slide {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+// ________________ FORMS ________________
+
+.form-control {
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid $red;
+    background-color: #ffffff99;
 }

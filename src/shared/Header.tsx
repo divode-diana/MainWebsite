@@ -23,7 +23,7 @@ const Header = () => {
                 </HashLink>
             </div>
 
-            <nav className="w-content z-1 d-flex justify-content-center align-items-center position-fixed top-0 mt-3 mt-md-4 bg-glass-white rounded-pill">
+            <nav className="w-content z-4 d-flex justify-content-center align-items-center position-fixed top-0 mt-3 mt-md-4 bg-glass-white rounded-pill">
                 <ul className="d-flex align-items-center justify-content-between w-100 px-2 py-1 m-0">
                     <div className="d-flex gap-4 align-items-center">
                         <li>
@@ -67,7 +67,7 @@ const Header = () => {
                             </li>
                         </div>
                     </div>
-                    <div className="d-flex gap-3">
+                    <div className="d-flex gap-2">
                         <li className="d-none d-md-block">
                             <HashLink
                                 smooth
