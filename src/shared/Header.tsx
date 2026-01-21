@@ -3,16 +3,40 @@ import { useLanguage } from "../context/LanguageContext";
 import { TRANSLATIONS } from "../constants/translations";
 import { HashLink } from "react-router-hash-link";
 import { LANGUAGES } from "../constants/enums";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Header = () => {
     const { language, toggleLanguage } = useLanguage();
     const content = TRANSLATIONS[language];
 
+    useGSAP(() => {
+        const showAnim = gsap
+            .from(".nav", {
+                yPercent: -150,
+                paused: true,
+                duration: 0.2,
+            })
+            .progress(1);
+
+        ScrollTrigger.create({
+            start: "top top",
+            end: "max",
+            // markers: true,
+            onUpdate: (self) => {
+                self.direction === -1 ? showAnim.play() : showAnim.reverse();
+            },
+        });
+    });
+
     return (
         <header className="d-flex justify-content-center">
             <div
                 title="skip to main content"
-                className="position-absolute top-0 w-100 d-flex justify-content-center"
+                className="position-absolute top-0 w-100 d-flex justify-content-center z-5"
             >
                 <HashLink
                     smooth
@@ -23,7 +47,7 @@ const Header = () => {
                 </HashLink>
             </div>
 
-            <nav className="w-content z-4 d-flex justify-content-center align-items-center position-fixed top-0 mt-3 mt-md-4 bg-glass-white rounded-pill">
+            <nav className="nav w-content z-4 d-flex justify-content-center align-items-center position-fixed top-0 mt-3 mt-md-4 bg-glass-white rounded-pill">
                 <ul className="d-flex align-items-center justify-content-between w-100 px-2 py-1 m-0">
                     <div className="d-flex gap-4 align-items-center">
                         <li>

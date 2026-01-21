@@ -228,12 +228,12 @@ ul {
     margin-top: 4rem;
 }
 
-.mt-n45 {
-    margin-top: -45rem;
-}
-
 .z-4 {
     z-index: 4;
+}
+
+.z-5 {
+    z-index: 5;
 }
 
 .opacity-focus-1:focus {
@@ -305,4 +305,41 @@ ul {
     border: none;
     border-bottom: 2px solid $red;
     background-color: #ffffff99;
+}
+
+// ________________ BACKGROUND ________________
+
+.bg-layer {
+    position: absolute;
+    inset: 0; /* fills the whole section */
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none; /* clicks go through */
+}
+
+.floater {
+    position: absolute; /* IMPORTANT: takes no space */
+    pointer-events: auto; /* BUT still draggable */
+    user-select: none;
+    touch-action: none;
+    will-change: transform;
+}
+
+// SERVICES IMG ANIMATION
+
+#svg-stage {
+    width: 50%;
+    max-height: 25vh;
+    overflow: visible;
+}
+
+#pen,
+#object,
+#palette,
+#code,
+#wifi,
+#screwdriver {
+    visibility: hidden;
 }
