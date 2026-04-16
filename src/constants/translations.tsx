@@ -49,7 +49,7 @@ export const TRANSLATIONS = [
             },
             horizontalText: {
                 p1: "Mais de 6 anos de experiência profissional em desenvolvimento web.",
-                p2: "Background em Design e Multimédia",
+                p2: "Background em Design e Multimédia e Engenharia de Software",
                 p3: "Conhecimento das ferramentas, frameworks e práticas de design modernas.",
                 p4: "Compromisso com comunicação clara e entrega consistente.",
             },
@@ -134,7 +134,7 @@ export const TRANSLATIONS = [
             topText:
                 "Branding, design, development and continuous support, all integrated. <br/> Less complications, more consistency, zero wasted time.",
             bottomText:
-                "One partner for <span className='animated-underline fw-bold'>everything you need</span> online.",
+                "One partner for <span class='animated-underline fw-bold'>everything you need</span> online.",
             list: [
                 "Branding",
                 "Web Design",
@@ -146,24 +146,24 @@ export const TRANSLATIONS = [
         },
         about: {
             topText:
-                "Se a sua presença digital não está a trabalhar para si, está a trabalhar contra si.",
+                "If your digital presence <span class='animated-underline'>isn't working for you</span>,<br /> it's <span class='animated-underline'>working against you</span>.",
             bubbles: [
-                "<b>Compreendemos as suas necessidades</b>, os seus objetivos e o seu público.",
-                "<b>Websites rápidos</b>, seguros e escaláveis, criados com tecnologias modernas.",
-                "Branding, web design e gráficos que <b>refletem os seus valores</b> e <b>atraem as pessoas certas</b>.",
-                "Domínios, alojamento, gestão e manutenção — para que a sua <b>presença digital se mantenha forte</b> muito depois do lançamento.",
+                "<b>We take the time to understand</b> your needs, your goals, and your audience.",
+                "<b>Fast</b>, secure, and scalable websites built with modern technologies.",
+                "Branding, web design, and graphics that <b>reflect your values</b> and <b>attract the right people</b>.",
+                "Domains, hosting, management, and maintenance — so your <b>digital presence stays strong</b> long after launch.",
             ],
             longText: {
                 p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank' class='text-dark'>Diana Fonte</a>, founder of Divode",
-                p2: "Specialist in Web Development",
-                p3: "Divode is a web design and development consultancy focused on creating functional, accessible, and mindful digital experiences. We support the entire process, from idea to launch.",
-                p4: "At the intersection of creativity, technology, and usability, we believe in using accessible design, sustainable practices, and positive impact to transform the digital world.",
+                p2: "Web Development Specialist",
+                p3: "Divode is a web design and development consultancy focused on creating functional, accessible, and thoughtful digital experiences. We support the entire process — from concept to launch.",
+                p4: "At the intersection of creativity, technology, and usability, we believe accessible design, sustainable practices, and positive impact can help shape a better digital world.",
             },
             horizontalText: {
-                p1: "Mais de 6 anos de experiência profissional em desenvolvimento web.",
-                p2: "Background em Design e Multimédia",
-                p3: "Conhecimento das ferramentas, frameworks e práticas de design modernas.",
-                p4: "Compromisso com comunicação clara e entrega consistente.",
+                p1: "Over 6 years of professional experience in web development.",
+                p2: "Background in Design and Multimedia and Software Engineering.",
+                p3: "Strong knowledge of modern design tools, frameworks, and development practices.",
+                p4: "Committed to clear communication and consistent delivery.",
             },
         },
         contacts: {

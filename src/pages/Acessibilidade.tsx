@@ -11,7 +11,7 @@ const Acessibilidade = () => {
     }, []);
 
     return (
-        <section className="mt-5rem mt-md-10 d-flex flex-column gap-4 maxw-md-80 mx-auto px-4 px-md-0">
+        <section className="mt-[5rem] md:mt-10 flex flex-col gap-4 md:max-w-[80vw] mx-auto px-4 md:px-0">
             <div dangerouslySetInnerHTML={{ __html: html }} />
         </section>
     );

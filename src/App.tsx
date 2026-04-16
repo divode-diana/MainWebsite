@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
-import Homepage from "./pages/Homepage";
+import Homepage from "./pages/Homepage/Homepage";
 import { Routes, Route } from "react-router-dom";
 import RGPD from "./pages/RGPD";
 import Termos from "./pages/Termos";
 import { useLocation } from "react-router-dom";
 import Acessibilidade from "./pages/Acessibilidade";
-import Header from "./shared/Header";
-import Footer from "./shared/Footer";
+import Header from "./components/shared/Header";
+import Footer from "./components/shared/Footer";
 
 const loadFontAwesome = () => {
-    const kitId = process.env.REACT_APP_FONTAWESOME_KIT_KEY;
+    const kitId = import.meta.env.VITE_FONTAWESOME_KIT_KEY;
     if (!kitId) return;
 
     const script = document.createElement("script");
@@ -36,7 +36,7 @@ function App() {
 
             <main
                 id="main"
-                className="d-flex flex-column gap-4 minh-100 w-100 overflow-clip"
+                className="flex flex-col gap-4 min-h-full w-full overflow-clip"
             >
                 <Routes>
                     <Route path="/" element={<Homepage />} />

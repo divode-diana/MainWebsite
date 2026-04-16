@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { TRANSLATIONS } from "../constants/translations";
-import Icon from "../shared/Icon";
+import Icon from "../components/shared/Icon";
 import { HashLink } from "react-router-hash-link";
 import { LANGUAGES } from "../constants/enums";
 
@@ -10,18 +10,18 @@ const RGPD = () => {
     const content = TRANSLATIONS[language];
 
     return (
-        <section className="mt-5rem mt-md-10 d-flex flex-column gap-4 maxw-md-80 mx-auto px-4 px-md-0">
+        <section className="mt-[5rem] md:mt-10 flex flex-col gap-4 md:max-w-[80vw] mx-auto px-4 md:px-0">
             <Link
                 to={"/"}
-                className="d-flex gap-1 fs-6 align-items-baseline text-decoration-none"
+                className="flex gap-1 text-sm items-baseline no-underline"
             >
                 <Icon icon={"chevron-left"} />{" "}
-                <span className="text-decoration-underline">
+                <span className="underline">
                     {content.rgpd_terms.back}
                 </span>
             </Link>
 
-            <div className="d-flex flex-column gap-4 ">
+            <div className="flex flex-col gap-4">
                 <ul className="my-4 p-0">
                     <li>
                         <HashLink smooth to={"./#privacidade-1"}>
