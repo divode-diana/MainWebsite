@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { useLanguage } from "../../context/LanguageContext";
 import { TRANSLATIONS } from "../../constants/translations";
 import { BG_SVGS } from "../../constants/enums";
-import { setupFloaters, setupParallaxLayers } from "./animations";
+import { setupFloaters, setupParallaxLayers, setupUnderlines, setupFadeUps } from "./animations";
 import LandingSection from "./LandingSection";
 import ServicesSection from "./ServicesSection";
 import AboutSection from "./AboutSection";
@@ -94,7 +94,7 @@ const Homepage = () => {
                     yPct: y,
                     size: 40 + rand() * 140,
                     depth: 5 + rand() * 0.9,
-                    opacity: 0.25 + rand() * 0.5,
+                    opacity: 0.55 + rand() * 0.45,
                 });
             }
         });
@@ -109,6 +109,8 @@ const Homepage = () => {
             const selector = gsap.utils.selector(rootRef.current!);
             setupFloaters(selector);
             setupParallaxLayers(selector);
+            setupUnderlines(selector);
+            setupFadeUps(selector);
         },
         { scope: rootRef },
     );

@@ -46,6 +46,27 @@ const AboutSection = ({ content }: Props) => {
                 }}
             />
 
+            
+
+            <div className="w-full container max-w-[min(1700px,90vw)] mx-auto mb-20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {content.about.bubbles.map((bubble, index) => (
+                        <div
+                            key={index}
+                            className="about-bubble bg-white p-4 rounded-full flex items-center justify-center"
+                            style={{ width: "12rem", height: "12rem" }}
+                        >
+                            <p
+                                className="font-semibold text-center text-[0.85rem] m-0"
+                                dangerouslySetInnerHTML={{
+                                    __html: bubble,
+                                }}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
             <div className="flex gap-3 md:gap-5 my-5 mx-auto justify-center items-start text-center text-white">
                 <div className="flex flex-col gap-2 md:max-w-1/2 text-left">
                     <img
@@ -101,25 +122,6 @@ const AboutSection = ({ content }: Props) => {
                             )}
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div className="w-full container max-w-[min(1700px,90vw)] mx-auto mb-20">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {content.about.bubbles.map((bubble, index) => (
-                        <div
-                            key={index}
-                            className="about-bubble bg-white p-4 rounded-full flex items-center justify-center"
-                            style={{ width: "12rem", height: "12rem" }}
-                        >
-                            <p
-                                className="font-semibold text-center text-[0.85rem] m-0"
-                                dangerouslySetInnerHTML={{
-                                    __html: bubble,
-                                }}
-                            />
-                        </div>
-                    ))}
                 </div>
             </div>
         </section>

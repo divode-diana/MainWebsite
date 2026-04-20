@@ -29,14 +29,23 @@ const ServicesSection = ({ content, language }: Props) => {
         <section
             id="services"
             ref={sectionRef}
-            className="w-full h-screen flex flex-col justify-between items-center p-3 pt-4 lg:p-5! lg:py-15! mx-auto z-20"
+            className="w-full h-screen flex flex-col lg:flex-row justify-between items-center py-15 md:py-0 max-w-[min(1700px,90vw)] mx-auto z-20"
         >
-            <p
-                className="text-xl font-semibold rounded px-3 py-2 mt-7 mb-0 text-center z-20"
-                dangerouslySetInnerHTML={{
-                    __html: content.services.bottomText,
-                }}
-            />
+            <div className="flex flex-col gap-4 md:gap-10 md:w-2/5" data-aos="fade-up">
+                <h3
+                    className="text-3xl md:text-5xl mb-0 text-center md:text-left"
+                    dangerouslySetInnerHTML={{
+                        __html: content.services.bottomText,
+                    }}
+                />
+
+                <p
+                    className="text-center md:text-left"
+                    dangerouslySetInnerHTML={{
+                        __html: content.services.topText,
+                    }}
+                ></p>
+            </div>
 
             <div
                 ref={servicesIconWrapRef}
@@ -58,13 +67,6 @@ const ServicesSection = ({ content, language }: Props) => {
                     ))}
                 </div>
             </div>
-
-            <p
-                className="text-center text-base rounded px-3 z-2"
-                dangerouslySetInnerHTML={{
-                    __html: content.services.topText,
-                }}
-            ></p>
         </section>
     );
 };

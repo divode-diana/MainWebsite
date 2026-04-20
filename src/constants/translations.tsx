@@ -20,9 +20,9 @@ export const TRANSLATIONS = [
         },
         services: {
             topText:
-                "Branding, design, desenvolvimento e suporte contínuo, tudo integrado. <br/> Menos complicações, mais consistência, zero tempo perdido.",
+                "Menos complicações, mais consistência, zero tempo perdido.",
             bottomText:
-                "Um parceiro para <span class='animated-underline fw-bold'>tudo o que precisa</span> online.",
+                "Um parceiro para <span class='animated-underline'>tudo o que precisa</span> online.",
             list: [
                 "Branding",
                 "Design Web",
@@ -89,13 +89,16 @@ export const TRANSLATIONS = [
                 success: {
                     title: "Mensagem enviada com sucesso!",
                     text: "Obrigada pela mensagem, iremos entrar em contacto consigo o mais brevemente possível.",
+                    imageAlt: "Ilustração de celebração de mensagem enviada com sucesso",
                 },
                 error: {
                     title: "Não foi possível enviar a mensagem!",
                     text: "Por favor tente outra vez mais tarde ou envie-nos um email directamente. Pedimos desculpa pelo incómodo.",
+                    imageAlt: "Ilustração de erro no envio da mensagem",
                 },
                 fieldsError:
                     "Por favor preencha todos os campos necessários e o CAPTCHA.",
+                tryAgain: "Tentar novamente",
             },
         },
         footer: {
@@ -132,7 +135,7 @@ export const TRANSLATIONS = [
         },
         services: {
             topText:
-                "Branding, design, development and continuous support, all integrated. <br/> Less complications, more consistency, zero wasted time.",
+                "Less complications, more consistency, zero wasted time.",
             bottomText:
                 "One partner for <span class='animated-underline fw-bold'>everything you need</span> online.",
             list: [
@@ -167,7 +170,7 @@ export const TRANSLATIONS = [
             },
         },
         contacts: {
-            title: "Ready to start you journey?",
+            title: "Ready to start your journey?",
             subtitle:
                 "Whether you’re starting from scratch or improving what you already have, we help you create a digital presence that conveys trust and delivers results.",
             contacts: {
@@ -201,13 +204,16 @@ export const TRANSLATIONS = [
                 success: {
                     title: "Message sent successfully!",
                     text: "Thank you for contacting us, we will get back to you as soon as possible.",
+                    imageAlt: "Illustration of a successful message submission",
                 },
                 error: {
                     title: "There was an error!",
                     text: "Please try again later or contact us through the contacts on the left. We are sorry for the inconvenience.",
+                    imageAlt: "Illustration of an error in message submission",
                 },
                 fieldsError:
                     "Please complete all necessary fields and the CAPTCHA.",
+                tryAgain: "Try again",
             },
         },
         footer: {

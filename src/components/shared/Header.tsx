@@ -50,7 +50,7 @@ const Header = () => {
                 </HashLink>
             </div>
 
-            <nav className="nav w-full max-w-[min(1700px,90vw)] mx-auto z-10 flex justify-center items-center fixed top-0 mt-3 md:mt-4">
+            <nav className="nav w-full max-w-[min(1700px,90vw)] mx-auto z-50 flex justify-center items-center fixed top-0 mt-3 md:mt-4">
                 <ul className="flex items-center justify-between w-full m-0">
                     <li>
                         <HashLink smooth to={"/#landing"}>
@@ -58,7 +58,7 @@ const Header = () => {
                                 <img
                                     src="./divode_logo_color.svg"
                                     alt={content.header.logo}
-                                    className="h-[40px] w-auto"
+                                    className="h-10 w-auto"
                                 />
                             </h1>
                         </HashLink>
@@ -86,7 +86,7 @@ const Header = () => {
                                             : "./flag/PT.svg"
                                     }
                                     alt="language flag"
-                                    className="h-[15px] w-auto"
+                                    className="h-3.75 w-auto"
                                 />
                             </button>
                         </li>

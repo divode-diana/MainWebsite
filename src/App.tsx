@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import Acessibilidade from "./pages/Acessibilidade";
 import Header from "./components/shared/Header";
 import Footer from "./components/shared/Footer";
+import { ScrollProgress } from "./components/ScrollProgress";
 
 const loadFontAwesome = () => {
     const kitId = import.meta.env.VITE_FONTAWESOME_KIT_KEY;
@@ -26,12 +27,9 @@ function App() {
         loadFontAwesome();
     }, []);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [location.pathname]);
-
     return (
         <>
+            <ScrollProgress />
             <Header />
 
             <main

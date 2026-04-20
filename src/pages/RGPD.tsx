@@ -10,7 +10,7 @@ const RGPD = () => {
     const content = TRANSLATIONS[language];
 
     return (
-        <section className="mt-[5rem] md:mt-10 flex flex-col gap-4 md:max-w-[80vw] mx-auto px-4 md:px-0">
+        <section className="my-20 flex flex-col gap-4 md:max-w-[80vw] mx-auto px-4 md:px-0">
             <Link
                 to={"/"}
                 className="flex gap-1 text-sm items-baseline no-underline"

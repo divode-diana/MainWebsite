@@ -42,7 +42,7 @@ const ContactsSection = ({ content, language }: Props) => {
                 errors.name = content.contacts.form.mandatoryError;
             }
 
-            if (!/^\+?[0-9]{7,15}$/.test(values.phone)) {
+            if (values.phone && !/^\+?[0-9]{7,15}$/.test(values.phone)) {
                 errors.phone = content.contacts.form.formatError;
             }
 
@@ -51,7 +51,7 @@ const ContactsSection = ({ content, language }: Props) => {
             } else if (
                 !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
             ) {
-                errors.email = "Invalid email address";
+                errors.email = content.contacts.form.formatError;
             }
 
             if (!values.message) {
@@ -107,7 +107,7 @@ const ContactsSection = ({ content, language }: Props) => {
                     },
                     (error) => {
                         setEmailStatus("error");
-                        console.log(error);
+                        console.error(error);
                     },
                 );
         },
@@ -185,7 +185,11 @@ const ContactsSection = ({ content, language }: Props) => {
                                         ? "undraw_happy-news_d5bt 1.svg"
                                         : "undraw_cancel_7zdh 1.svg"
                                 }
-                                alt="Illustração do erro ou sucesso do formulário de contacto"
+                                alt={
+                                    emailStatus === "success"
+                                        ? content.contacts.form.success.imageAlt
+                                        : content.contacts.form.error.imageAlt
+                                }
                                 className="w-1/2 h-full object-cover rounded-full"
                             />
                             <h4>
@@ -198,10 +202,19 @@ const ContactsSection = ({ content, language }: Props) => {
                                     ? content.contacts.form.success.text
                                     : content.contacts.form.error.text}
                             </p>
+                            {emailStatus === "error" && (
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={() => setEmailStatus("")}
+                                >
+                                    {content.contacts.form.tryAgain}
+                                </button>
+                            )}
                         </div>
                     ) : (
                         <form
                             onSubmit={formik.handleSubmit}
+                            noValidate
                             className="flex flex-col gap-3 w-full"
                         >
                             <h3 className="text-lg md:hidden mb-4">
@@ -224,10 +237,13 @@ const ContactsSection = ({ content, language }: Props) => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     disabled={emailStatus === "sending"}
+                                    aria-required="true"
+                                    aria-invalid={!!formik.touched.name && !!formik.errors.name}
+                                    aria-describedby={!!formik.touched.name && !!formik.errors.name ? "nameError" : undefined}
                                     className={`w-full border rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 ${!!formik.touched.name && !!formik.errors.name ? "border-red-600" : "border-gray-300"}`}
                                 />
                                 {!!formik.touched.name && !!formik.errors.name && (
-                                    <p className="text-red-dark text-sm mt-1">
+                                    <p id="nameError" role="alert" className="text-red-dark text-sm mt-1">
                                         {formik.errors.name}
                                     </p>
                                 )}
@@ -246,10 +262,12 @@ const ContactsSection = ({ content, language }: Props) => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     disabled={emailStatus === "sending"}
+                                    aria-invalid={!!formik.touched.phone && !!formik.errors.phone}
+                                    aria-describedby={!!formik.touched.phone && !!formik.errors.phone ? "phoneError" : undefined}
                                     className={`w-full border rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 ${!!formik.touched.phone && !!formik.errors.phone ? "border-red-600" : "border-gray-300"}`}
                                 />
                                 {!!formik.touched.phone && !!formik.errors.phone && (
-                                    <p className="text-red-dark text-sm mt-1">
+                                    <p id="phoneError" role="alert" className="text-red-dark text-sm mt-1">
                                         {formik.errors.phone}
                                     </p>
                                 )}
@@ -271,10 +289,13 @@ const ContactsSection = ({ content, language }: Props) => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     disabled={emailStatus === "sending"}
+                                    aria-required="true"
+                                    aria-invalid={!!formik.touched.email && !!formik.errors.email}
+                                    aria-describedby={!!formik.touched.email && !!formik.errors.email ? "emailError" : undefined}
                                     className={`w-full border rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 ${!!formik.touched.email && !!formik.errors.email ? "border-red-600" : "border-gray-300"}`}
                                 />
                                 {!!formik.touched.email && !!formik.errors.email && (
-                                    <p className="text-red-dark text-sm mt-1">
+                                    <p id="emailError" role="alert" className="text-red-dark text-sm mt-1">
                                         {formik.errors.email}
                                     </p>
                                 )}
@@ -299,11 +320,14 @@ const ContactsSection = ({ content, language }: Props) => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     disabled={emailStatus === "sending"}
+                                    aria-required="true"
+                                    aria-invalid={!!formik.touched.message && !!formik.errors.message}
+                                    aria-describedby={!!formik.touched.message && !!formik.errors.message ? "messageError" : undefined}
                                     className={`w-full border rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 resize-none ${!!formik.touched.message && !!formik.errors.message ? "border-red-600" : "border-gray-300"}`}
                                 />
                                 {!!formik.touched.message &&
                                     !!formik.errors.message && (
-                                        <p className="text-red-dark text-sm mt-1">
+                                        <p id="messageError" role="alert" className="text-red-dark text-sm mt-1">
                                             {formik.errors.message}
                                         </p>
                                     )}

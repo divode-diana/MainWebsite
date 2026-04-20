@@ -1,11 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
- 
+
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
     :root {
-
         --white: #fff;
         --light: #f1f0ea;
         --dark: #000;
@@ -46,6 +45,15 @@ body {
     position: relative;
     min-height: 100vh;
     background-color: var(--light);
+}
+
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
 }
 
 h1,
@@ -95,13 +103,14 @@ button.btn.btn-primary,
     min-height: 44px;
     color: var(--white);
     width: fit-content;
-    font-weight: bold;
+    font-weight: 400;
     border: 0;
     border-radius: 0;
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: OpenSans, sans-serif;
 }
 
 button.btn.btn-primary:hover,
@@ -118,13 +127,14 @@ button.btn.btn-outline-primary,
     min-height: 44px;
     color: var(--dark);
     width: fit-content;
-    font-weight: bold;
+    font-weight: 400;
     border: 1px solid var(--red);
     border-radius: 0;
     padding: 0.45rem 0.7rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: OpenSans, sans-serif;
 }
 
 button.btn.btn-outline-primary:hover,

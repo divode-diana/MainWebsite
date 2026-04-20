@@ -9,7 +9,9 @@ gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, MorphSVGPlugin);
 
 // ─── Background Layer ─────────────────────────────────────────────────────────
 
-export const setupFloaters = (selector: ReturnType<typeof gsap.utils.selector>) => {
+export const setupFloaters = (
+    selector: ReturnType<typeof gsap.utils.selector>,
+) => {
     const floaters = selector<HTMLElement>(".floater");
 
     gsap.set(floaters, {
@@ -20,10 +22,10 @@ export const setupFloaters = (selector: ReturnType<typeof gsap.utils.selector>) 
 
     floaters.forEach((el) => {
         gsap.to(el, {
-            x: `+=${gsap.utils.random(-20, 20)}`,
-            y: `+=${gsap.utils.random(-25, 25)}`,
-            rotate: gsap.utils.random(-6, 6),
-            duration: gsap.utils.random(4, 7),
+            x: `+=${gsap.utils.random(-55, 55)}`,
+            y: `+=${gsap.utils.random(-65, 65)}`,
+            rotate: gsap.utils.random(-15, 15),
+            duration: gsap.utils.random(3, 6),
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut",
@@ -67,6 +69,23 @@ export const setupParallaxLayers = (
 };
 
 // ─── Landing Section ──────────────────────────────────────────────────────────
+
+export const setupButtonFloat = (el: HTMLElement | null) => {
+    if (!el) return;
+
+    const animate = () => {
+        gsap.to(el, {
+            x: gsap.utils.random(-18, 18),
+            y: gsap.utils.random(-14, 14),
+            rotate: gsap.utils.random(-6, 6),
+            duration: gsap.utils.random(2.5, 4.5),
+            ease: "sine.inOut",
+            onComplete: animate,
+        });
+    };
+
+    animate();
+};
 
 export const setupMouse = (mouseWrap: HTMLDivElement | null) => {
     const line = mouseWrap?.querySelector<SVGPathElement>(".mouse-line");
@@ -126,8 +145,22 @@ export const setupServices = (
     const transformOrigin = `50% 50% ${depth}`;
     const lastItem = items.length - 1;
 
-    const targets = ["#pen", "#object", "#palette", "#code", "#wifi", "#screwdriver"];
-    const colors = ["#CF0501", "#138184", "#2EBCE4", "#0678C5", "#1C4263", "#88735A"];
+    const targets = [
+        "#pen",
+        "#object",
+        "#palette",
+        "#code",
+        "#wifi",
+        "#screwdriver",
+    ];
+    const colors = [
+        "#CF0501",
+        "#138184",
+        "#2EBCE4",
+        "#0678C5",
+        "#1C4263",
+        "#88735A",
+    ];
 
     // Hide morph target paths — they are data sources for MorphSVG, not visual elements
     targets.forEach((id) => {
@@ -207,6 +240,28 @@ export const setupAboutImagePin = (
 };
 
 // ─── Shared ───────────────────────────────────────────────────────────────────
+
+export const setupFadeUps = (
+    selector: ReturnType<typeof gsap.utils.selector>,
+) => {
+    selector<HTMLElement>("[data-aos='fade-up']").forEach((el) => {
+        gsap.fromTo(
+            el,
+            { opacity: 0, y: 40 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    once: true,
+                },
+            },
+        );
+    });
+};
 
 export const setupUnderlines = (
     selector: ReturnType<typeof gsap.utils.selector>,
