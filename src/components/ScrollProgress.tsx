@@ -26,6 +26,7 @@ export function ScrollProgress() {
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.3,
+          invalidateOnRefresh: true,
         },
       });
       st = tween.scrollTrigger ?? null;

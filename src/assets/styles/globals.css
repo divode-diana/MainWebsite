@@ -66,6 +66,10 @@ h6,
     font-family: AdventPro, sans-serif;
 }
 
+.font-open {
+    font-family: OpenSans, sans-serif;
+}
+
 a,
 .btn.btn-Link {
     color: var(--red);
@@ -103,7 +107,7 @@ button.btn.btn-primary,
     min-height: 44px;
     color: var(--white);
     width: fit-content;
-    font-weight: 400;
+    font-weight: 500;
     border: 0;
     border-radius: 0;
     padding: 0.5rem 1rem;
@@ -127,7 +131,7 @@ button.btn.btn-outline-primary,
     min-height: 44px;
     color: var(--dark);
     width: fit-content;
-    font-weight: 400;
+    font-weight: 500;
     border: 1px solid var(--red);
     border-radius: 0;
     padding: 0.45rem 0.7rem;
@@ -166,10 +170,13 @@ button.btn.btn-secondary:hover,
 }
 
 .card {
-    background-color: #ffffff99;
+    background-color: #ffffff;
     border-radius: 20px;
-    border: 0;
-    box-shadow: 1px 1px 5px #f1f0ea;
+    border: 1px solid var(--light);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.07),
+        0 10px 30px -5px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
     padding: 1rem;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);

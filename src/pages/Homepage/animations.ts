@@ -1,11 +1,9 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { ReactComponent as MouseIcon } from "../../assets/mouse.svg";
-import { ReactComponent as ServicesIcon } from "../../assets/services_icons.svg";
 
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, MorphSVGPlugin);
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
 // ─── Background Layer ─────────────────────────────────────────────────────────
 
@@ -106,187 +104,67 @@ export const setupMouse = (mouseWrap: HTMLDivElement | null) => {
     );
 };
 
-// ─── Services Section ─────────────────────────────────────────────────────────
-
-export const setupServices = (
-    sectionEl: HTMLElement,
-    servicesIconWrap: HTMLDivElement | null,
-) => {
-    const items = Array.from(
-        sectionEl.querySelectorAll<HTMLElement>(".services-list-item"),
-    );
-
-    if (!items.length) return;
-
-    const svg = servicesIconWrap?.querySelector("svg");
-    const active = svg?.querySelector<SVGPathElement>("#iconActive") ?? null;
-
-    gsap.set(items, {
-        transformPerspective: 700,
-        backfaceVisibility: "hidden",
-        rotationX: -90,
-    });
-
-    const timeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: sectionEl,
-            start: "top top",
-            end: () => `+=${items.length * (window.innerHeight * 0.75)}`,
-            scrub: true,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-        },
-    });
-
-    const animationTime = 1;
-    const depth = -window.innerWidth / 35;
-    const transformOrigin = `50% 50% ${depth}`;
-    const lastItem = items.length - 1;
-
-    const targets = [
-        "#pen",
-        "#object",
-        "#palette",
-        "#code",
-        "#wifi",
-        "#screwdriver",
-    ];
-    const colors = [
-        "#CF0501",
-        "#138184",
-        "#2EBCE4",
-        "#0678C5",
-        "#1C4263",
-        "#88735A",
-    ];
-
-    // Hide morph target paths — they are data sources for MorphSVG, not visual elements
-    targets.forEach((id) => {
-        const el = svg?.querySelector(id);
-        if (el) gsap.set(el, { display: "none" });
-    });
-
-    items.forEach((item, i) => {
-        timeline.to(
-            item,
-            {
-                rotationX: i === lastItem ? 0 : 90,
-                duration: i === lastItem ? animationTime / 2 : animationTime,
-                ease: "none",
-                transformOrigin,
-            },
-            i * 0.8,
-        );
-
-        if (active && targets[i]) {
-            timeline.to(
-                active,
-                {
-                    morphSVG: targets[i],
-                    fill: colors[i],
-                    duration: animationTime / 2,
-                    ease: "none",
-                },
-                i * 0.8,
-            );
-        }
-    });
-};
-
 // ─── About Section ────────────────────────────────────────────────────────────
-// Image pinning is handled via CSS position: sticky on .about-image-pin
 
-export const setupAboutImagePin = (
+export const setupAboutCarousel = (
     sectionEl: HTMLElement,
-    aboutImageWrap: HTMLDivElement | null,
+    track: HTMLElement,
+    slideCount: number,
+    squigglePath?: SVGPathElement | null,
 ) => {
-    if (!aboutImageWrap) return;
+    if (slideCount < 2) return;
 
-    const mm = gsap.matchMedia();
+    const totalScrollPx = window.innerHeight * (slideCount - 1);
 
-    mm.add("(min-width: 768px)", () => {
-        gsap.set(aboutImageWrap, { force3D: true, willChange: "transform" });
-
-        const stopOffset = 200; // px — increase to stop earlier
-
-        gsap.to(aboutImageWrap, {
-            y: () => {
-                const scrollStart =
-                    aboutImageWrap.getBoundingClientRect().top +
-                    window.scrollY +
-                    aboutImageWrap.offsetHeight / 2 -
-                    window.innerHeight / 2;
-                const scrollEnd =
-                    sectionEl.getBoundingClientRect().top +
-                    window.scrollY +
-                    sectionEl.offsetHeight -
-                    stopOffset -
-                    window.innerHeight;
-                return Math.max(0, scrollEnd - scrollStart);
-            },
-            ease: "none",
-            scrollTrigger: {
-                trigger: aboutImageWrap,
-                endTrigger: sectionEl,
-                start: "center center",
-                end: `bottom-=${stopOffset} bottom`,
-                scrub: 0.5,
-                invalidateOnRefresh: true,
-            },
-        });
+    ScrollTrigger.create({
+        trigger: sectionEl,
+        start: "top top",
+        end: () => `+=${totalScrollPx}`,
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
     });
+
+    const scrollConfig = {
+        trigger: sectionEl,
+        start: "top top",
+        end: () => `+=${totalScrollPx}`,
+        scrub: 0.5,
+        invalidateOnRefresh: true,
+    };
+
+    gsap.to(track, {
+        x: () => -(sectionEl.offsetWidth * (slideCount - 1)),
+        ease: "none",
+        scrollTrigger: scrollConfig,
+    });
+
+    if (squigglePath) {
+        gsap.set(squigglePath, { drawSVG: "0%" });
+        gsap.to(squigglePath, {
+            drawSVG: "100%",
+            ease: "none",
+            scrollTrigger: scrollConfig,
+        });
+    }
 };
 
 // ─── Shared ───────────────────────────────────────────────────────────────────
 
-export const setupFadeUps = (
-    selector: ReturnType<typeof gsap.utils.selector>,
-) => {
-    selector<HTMLElement>("[data-aos='fade-up']").forEach((el) => {
-        gsap.fromTo(
-            el,
-            { opacity: 0, y: 40 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 85%",
-                    once: true,
-                },
-            },
-        );
+export const setupCardGradientBorder = (wrapEl: HTMLElement) => {
+    let angle = 0;
+
+    // getVelocity() returns px/s. Multiplying by a small factor converts
+    // speed into rotation degrees per update tick (~60fps).
+    ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: (self) => {
+            angle += self.getVelocity() * 0.002;
+            wrapEl.style.setProperty("--border-angle", `${angle}deg`);
+        },
     });
 };
 
-export const setupUnderlines = (
-    selector: ReturnType<typeof gsap.utils.selector>,
-) => {
-    selector<HTMLElement>(".animated-underline").forEach((el) => {
-        const trigger = el.closest("p, h1, h2, h3, h4, h5, h6, li, div") || el;
-
-        gsap.set(el, {
-            backgroundSize: "0% 2px",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "0 100%",
-        });
-
-        gsap.to(el, {
-            backgroundSize: "100% 3px",
-            duration: 1.5,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger,
-                start: "top 80%",
-                once: true,
-                invalidateOnRefresh: true,
-            },
-        });
-    });
-};
-
-export { MouseIcon, ServicesIcon };
+export { MouseIcon };

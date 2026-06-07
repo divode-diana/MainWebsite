@@ -2,38 +2,10 @@ import { useLanguage } from "../../context/LanguageContext";
 import { TRANSLATIONS } from "../../constants/translations";
 import { HashLink } from "react-router-hash-link";
 import { LANGUAGES } from "../../constants/enums";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Header = () => {
     const { language, toggleLanguage } = useLanguage();
     const content = TRANSLATIONS[language];
-
-    useGSAP(() => {
-        const showAnim = gsap
-            .from(".nav", {
-                yPercent: -150,
-                paused: true,
-                duration: 0.2,
-            })
-            .progress(1);
-
-        ScrollTrigger.create({
-            start: "top top",
-            end: "max",
-            // markers: true,
-            onUpdate: (self) => {
-                if (self.direction === -1) {
-                    showAnim.play();
-                } else if (self.scroll() > 50) {
-                    showAnim.reverse();
-                }
-            },
-        });
-    });
 
     return (
         <header className="flex justify-center">

@@ -24,11 +24,11 @@ const LandingSection = ({ content }: Props) => {
         >
             <div></div>
             <div className="flex flex-col gap-7 md:gap-5 mt-4">
-                <h2 className="landing-item text-[40px] lg:text-[80px] text-end font-advent">
+                <h2 className="landing-item text-[40px]/15 md:text-[60px]/20 lg:text-[80px]/20 font-advent sm:max-w-2/3">
                     {content.landing.title}
                 </h2>
                 <p
-                    className="landing-item ms-auto mb-0 text-end md:w-1/2 text-sm md:text-base"
+                    className="landing-item mb-0 sm:max-w-2/3 text-sm md:text-base"
                     dangerouslySetInnerHTML={{
                         __html: content.landing.subtitle,
                     }}
@@ -37,7 +37,7 @@ const LandingSection = ({ content }: Props) => {
                     <MagneticButton
                         to="./#contacts"
                         smooth
-                        className="landing-item btn btn-primary mt-10 md:mt-0 md:ms-40"
+                        className="landing-item btn btn-primary mx-auto md:ms-auto mt-10 md:mt-0 md:me-40"
                     >
                         {content.landing.cta}
                     </MagneticButton>

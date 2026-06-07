@@ -14,7 +14,7 @@ export const TRANSLATIONS = [
         landing: {
             title: "Eleve os seus projetos a novos níveis!",
             subtitle:
-                "Criamos <span class='animated-underline'>soluções digitais</span> modernas que ajudam as suas ideias a destacarem-se, ganharem confiança e crescer online.",
+                "Criamos <span class='animated-underline'>soluigitais</span> modernas que ajudam as suas ideias a destacarem-se, ganharem confiança e crescer online.",
             cta: "Trabalhe connosco",
             scroll: "Scroll para baixo",
         },
@@ -24,33 +24,33 @@ export const TRANSLATIONS = [
             bottomText:
                 "Um parceiro para <span class='animated-underline'>tudo o que precisa</span> online.",
             list: [
-                "Branding",
-                "Design Web",
-                "Design Gráfico",
-                "Desenvolvimento Web",
-                "Domínios & Hosting",
-                "Gestão & Manutenção",
+                { name: "Branding", description: "Desenvolve a tua identidade" },
+                { name: "Design Web", description: "Desenha o visual do teu site" },
+                { name: "Design Gráfico", description: "Cria conteúdos visuais" },
+                { name: "Desenvolvimento Web", description: "Constrói o teu website" },
+                { name: "Domínios & Alojamento", description: "Coloca o teu website online" },
+                { name: "Gestão & Suporte", description: "Suporte e atualizações contínuas" },
             ],
         },
         about: {
-            topText:
-                "Se a sua presença digital <span class='animated-underline'>não está a trabalhar para si</span>,<br /> está a <span class='animated-underline'>trabalhar contra si</span>.",
             bubbles: [
+                "Se a sua presença digital <span class='animated-underline'>não está a trabalhar para si</span>,<br /> está a <span class='animated-underline'>trabalhar contra si</span>.",
                 "<b>Compreendemos as suas necessidades</b>, os seus objetivos e o seu público.",
                 "<b>Websites rápidos</b>, seguros e escaláveis, criados com tecnologias modernas.",
                 "Branding, web design e gráficos que <b>refletem os seus valores</b> e <b>atraem as pessoas certas</b>.",
                 "Domínios, alojamento, gestão e manutenção — para que a sua <b>presença digital se mantenha forte</b> muito depois do lançamento.",
+                "Apoiamos com a transição digital e a adopção de soluções modernas, para que possa <b>crescer e evoluir</b> sem preocupações técnicas.",
             ],
             longText: {
                 p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank' class='text-dark'>Diana Fonte</a>, fundadora da Divode",
-                p2: "Especialista em Desenvolvimento Web",
+                p2: "Especialistas em Desenvolvimento Web",
                 p3: "A divode é uma consultora de web design e desenvolvimento focada em criar experiências digitais funcionais, acessíveis e conscientes. Acompanhamos todo o processo, da ideia ao lançamento.",
                 p4: "Na interseção entre criatividade, tecnologia e usabilidade, acreditamos em usar o design acessível, práticas sustentáveis e com impacto positivo para transformar o mundo digital.",
             },
             horizontalText: {
                 p1: "Mais de 6 anos de experiência profissional em desenvolvimento web.",
-                p2: "Background em Design e Multimédia e Engenharia de Software",
-                p3: "Conhecimento das ferramentas, frameworks e práticas de design modernas.",
+                p2: "Background em Design, Multimédia e Engenharia de Software",
+                p3: "Conhecimento das ferramentas e práticas de design modernas.",
                 p4: "Compromisso com comunicação clara e entrega consistente.",
             },
         },
@@ -89,7 +89,8 @@ export const TRANSLATIONS = [
                 success: {
                     title: "Mensagem enviada com sucesso!",
                     text: "Obrigada pela mensagem, iremos entrar em contacto consigo o mais brevemente possível.",
-                    imageAlt: "Ilustração de celebração de mensagem enviada com sucesso",
+                    imageAlt:
+                        "Ilustração de celebração de mensagem enviada com sucesso",
                 },
                 error: {
                     title: "Não foi possível enviar a mensagem!",
@@ -134,38 +135,37 @@ export const TRANSLATIONS = [
             scroll: "Scroll down",
         },
         services: {
-            topText:
-                "Less complications, more consistency, zero wasted time.",
+            topText: "Less complications, more consistency, zero wasted time.",
             bottomText:
                 "One partner for <span class='animated-underline fw-bold'>everything you need</span> online.",
             list: [
-                "Branding",
-                "Web Design",
-                "Graphic Design",
-                "Web Development",
-                "Domains & Hosting",
-                "Management & Maintenance",
+                { name: "Branding", description: "Build your identity" },
+                { name: "Web Design", description: "Design your website's look" },
+                { name: "Graphic Design", description: "Create visual content" },
+                { name: "Web Development", description: "Build your website" },
+                { name: "Domains & Hosting", description: "Put your website online" },
+                { name: "Management & Service", description: "Ongoing support & updates" },
             ],
         },
         about: {
-            topText:
-                "If your digital presence <span class='animated-underline'>isn't working for you</span>,<br /> it's <span class='animated-underline'>working against you</span>.",
             bubbles: [
+                "If your digital presence <span class='animated-underline'>isn't working for you</span>,<br /> it's <span class='animated-underline'>working against you</span>.",
                 "<b>We take the time to understand</b> your needs, your goals, and your audience.",
                 "<b>Fast</b>, secure, and scalable websites built with modern technologies.",
                 "Branding, web design, and graphics that <b>reflect your values</b> and <b>attract the right people</b>.",
                 "Domains, hosting, management, and maintenance — so your <b>digital presence stays strong</b> long after launch.",
+                "We support your digital transition and the adoption of modern solutions, so you can <b>grow and evolve</b> without technical concerns.",
             ],
             longText: {
                 p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank' class='text-dark'>Diana Fonte</a>, founder of Divode",
-                p2: "Web Development Specialist",
+                p2: "Web Development Specialists",
                 p3: "Divode is a web design and development consultancy focused on creating functional, accessible, and thoughtful digital experiences. We support the entire process — from concept to launch.",
                 p4: "At the intersection of creativity, technology, and usability, we believe accessible design, sustainable practices, and positive impact can help shape a better digital world.",
             },
             horizontalText: {
                 p1: "Over 6 years of professional experience in web development.",
-                p2: "Background in Design and Multimedia and Software Engineering.",
-                p3: "Strong knowledge of modern design tools, frameworks, and development practices.",
+                p2: "Background in Design, Multimedia, and Software Engineering.",
+                p3: "Strong knowledge of modern design tools and development practices.",
                 p4: "Committed to clear communication and consistent delivery.",
             },
         },

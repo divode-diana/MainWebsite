@@ -1,14 +1,16 @@
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "../../context/LanguageContext";
 import { TRANSLATIONS } from "../../constants/translations";
 import { BG_SVGS } from "../../constants/enums";
-import { setupFloaters, setupParallaxLayers, setupUnderlines, setupFadeUps } from "./animations";
+import { setupFloaters, setupParallaxLayers } from "./animations";
 import LandingSection from "./LandingSection";
 import ServicesSection from "./ServicesSection";
 import AboutSection from "./AboutSection";
 import ContactsSection from "./ContactsSection";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 type Floater = {
     id: string;
@@ -109,11 +111,13 @@ const Homepage = () => {
             const selector = gsap.utils.selector(rootRef.current!);
             setupFloaters(selector);
             setupParallaxLayers(selector);
-            setupUnderlines(selector);
-            setupFadeUps(selector);
         },
         { scope: rootRef },
     );
+
+    useEffect(() => {
+        AOS.init();
+    }, []);
 
     return (
         <div
