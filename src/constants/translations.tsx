@@ -14,21 +14,21 @@ export const TRANSLATIONS = [
         landing: {
             title: "Eleve os seus projetos a novos níveis!",
             subtitle:
-                "Criamos <span class='animated-underline'>soluigitais</span> modernas que ajudam as suas ideias a destacarem-se, ganharem confiança e crescer online.",
+                "Criamos <span class='animated-underline'>soluções digitais</span> inovadoras e inteligentes, que ajudam as suas ideias a destacar-se, exibindo confiança e aumentando a sua presença online.",
             cta: "Trabalhe connosco",
             scroll: "Scroll para baixo",
         },
         services: {
             topText:
-                "Menos complicações, mais consistência, zero tempo perdido.",
+                "Menos complicações, mais consistência, mais produtividade, em menos tempo.",
             bottomText:
-                "Um parceiro para <span class='animated-underline'>tudo o que precisa</span> online.",
+                "Um parceiro para <span class='animated-underline'>tudo o que precisa</span>, online.",
             list: [
-                { name: "Branding", description: "Desenvolve a tua identidade" },
-                { name: "Design Web", description: "Desenha o visual do teu site" },
-                { name: "Design Gráfico", description: "Cria conteúdos visuais" },
-                { name: "Desenvolvimento Web", description: "Constrói o teu website" },
-                { name: "Domínios & Alojamento", description: "Coloca o teu website online" },
+                { name: "Branding", description: "Desenvolvemos a sua identidade, marca ou projeto" },
+                { name: "Design Web", description: "Desenhamos o visual do seu website" },
+                { name: "Design Gráfico", description: "Criamos conteúdos visuais" },
+                { name: "Desenvolvimento Web", description: "Consigo, construímos o seu website" },
+                { name: "Domínios & Alojamento", description: "Colocamos o seu website online" },
                 { name: "Gestão & Suporte", description: "Suporte e atualizações contínuas" },
             ],
         },
@@ -36,10 +36,10 @@ export const TRANSLATIONS = [
             bubbles: [
                 "Se a sua presença digital <span class='animated-underline'>não está a trabalhar para si</span>,<br /> está a <span class='animated-underline'>trabalhar contra si</span>.",
                 "<b>Compreendemos as suas necessidades</b>, os seus objetivos e o seu público.",
-                "<b>Websites rápidos</b>, seguros e escaláveis, criados com tecnologias modernas.",
-                "Branding, web design e gráficos que <b>refletem os seus valores</b> e <b>atraem as pessoas certas</b>.",
-                "Domínios, alojamento, gestão e manutenção — para que a sua <b>presença digital se mantenha forte</b> muito depois do lançamento.",
-                "Apoiamos com a transição digital e a adopção de soluções modernas, para que possa <b>crescer e evoluir</b> sem preocupações técnicas.",
+                "<b>Websites rápidos</b>, seguros e escaláveis, criados com soluções tecnológicas avançadas.",
+                "Branding e design que <b>reflete os seus valores</b> e <b>atrai as pessoas certas</b>.",
+                "Domínios, alojamento, gestão e manutenção — para que a sua <b>presença digital continue a aumentar, eficientemente, mesmo</b> depois do lançamento.",
+                "Apoiamos na sua transição digital, através da adopção de soluções inovadoras, para que possa <b>crescer e evoluir</b> sem preocupações técnicas.",
             ],
             longText: {
                 p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank' class='text-dark'>Diana Fonte</a>, fundadora da Divode",
@@ -59,7 +59,7 @@ export const TRANSLATIONS = [
             subtitle:
                 "Quer esteja a começar do zero ou a melhorar o que já tem, ajudamo-lo a criar uma presença digital que transmite confiança e gera resultados.",
             contacts: {
-                text: "Entre em contacto preenchendo o formulário e solicite o seu orçamento gratuitamente.",
+                text: "Entre em contacto, preencha o formulário e solicite o seu orçamento gratuitamente.",
                 divode: {
                     email: "info@divode.io",
                     linkedin: "/divode",
@@ -128,33 +128,33 @@ export const TRANSLATIONS = [
             cta: "Contact us",
         },
         landing: {
-            title: "Lift your projects to new levels!",
+            title: "Take your projects to new levels!",
             subtitle:
-                "We create modern <span class='animated-underline'>digital solutions</span> that help your ideas stand out, build trust, and grow online.",
+                "We create innovative, cutting-edge <span class='animated-underline'>digital solutions</span> that help your ideas stand out, build trust, and grow online.",
             cta: "Work with us",
             scroll: "Scroll down",
         },
         services: {
-            topText: "Less complications, more consistency, zero wasted time.",
+            topText: "Less complications, more consistency, more productivity, zero time wasted.",
             bottomText:
                 "One partner for <span class='animated-underline fw-bold'>everything you need</span> online.",
             list: [
-                { name: "Branding", description: "Build your identity" },
-                { name: "Web Design", description: "Design your website's look" },
-                { name: "Graphic Design", description: "Create visual content" },
-                { name: "Web Development", description: "Build your website" },
-                { name: "Domains & Hosting", description: "Put your website online" },
-                { name: "Management & Service", description: "Ongoing support & updates" },
+                { name: "Branding", description: "We build your identity, brand, or project" },
+                { name: "Web Design", description: "We design your website's visual identity" },
+                { name: "Graphic Design", description: "We create engaging visual content" },
+                { name: "Web Development", description: "We build your website" },
+                { name: "Domains & Hosting", description: "We put your website online" },
+                { name: "Management & Service", description: "We provide ongoing support & updates, to ensure your digital presence stays strong" },
             ],
         },
         about: {
             bubbles: [
                 "If your digital presence <span class='animated-underline'>isn't working for you</span>,<br /> it's <span class='animated-underline'>working against you</span>.",
                 "<b>We take the time to understand</b> your needs, your goals, and your audience.",
-                "<b>Fast</b>, secure, and scalable websites built with modern technologies.",
+                "<b>Fast</b>, secure, and scalable websites built with smart and future-ready solutions.",
                 "Branding, web design, and graphics that <b>reflect your values</b> and <b>attract the right people</b>.",
-                "Domains, hosting, management, and maintenance — so your <b>digital presence stays strong</b> long after launch.",
-                "We support your digital transition and the adoption of modern solutions, so you can <b>grow and evolve</b> without technical concerns.",
+                "Domains, hosting, management, and maintenance — so your <b>digital presence stays strong, </b> long after launch.",
+                "We support your digital transition and the adoption of advanced solutions, so you can <b>grow and evolve</b> without technical concerns.",
             ],
             longText: {
                 p1: "<a href='https://www.linkedin.com/in/dianafonte/' target='_blank' class='text-dark'>Diana Fonte</a>, founder of Divode",
@@ -170,9 +170,9 @@ export const TRANSLATIONS = [
             },
         },
         contacts: {
-            title: "Ready to start your journey?",
+            title: "Ready to start your journey with us?",
             subtitle:
-                "Whether you’re starting from scratch or improving what you already have, we help you create a digital presence that conveys trust and delivers results.",
+                "Whether you’re starting from scratch or improving what you already have, we help you create a digital presence that conveys trust and delivers results, maximizing your productivity and growth potential.",
             contacts: {
                 text: "Get in touch by filling out the form and request your free quote.",
                 divode: {
