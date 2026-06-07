@@ -1,0 +1,223 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+    :root {
+        --white: #fff;
+        --light: #f1f0ea;
+        --dark: #000;
+
+        --red: #cf0501;
+        --red-dark: #930503;
+
+        --teal-300: #89bfc1;
+        --teal-500: #138184;
+
+        --blue-50: #b6e8f6;
+        --blue-200: #2ebce4;
+        --blue-500: #0678c5;
+        --blue-800: #1c4263;
+    }
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src:
+        local("OpenSans"),
+        url(../fonts/OpenSans.ttf) format("truetype");
+}
+
+@font-face {
+    font-weight: 700;
+    font-family: "AdventPro";
+    src:
+        local("AdventPro"),
+        url(../fonts/AdventPro.ttf) format("truetype");
+}
+
+body {
+    margin: 0;
+    font-family: OpenSans, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--light);
+}
+
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-advent {
+    font-family: AdventPro, sans-serif;
+}
+
+.font-open {
+    font-family: OpenSans, sans-serif;
+}
+
+a,
+.btn.btn-Link {
+    color: var(--red);
+    font-weight: 700;
+}
+
+a:hover,
+a:focus,
+a:active,
+.btn.btn-Link:hover,
+.btn.btn-Link:focus,
+.btn.btn-Link:active {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+a.text-dark,
+.btn.btn-Link.text-dark {
+    color: var(--dark);
+}
+
+a.text-dark:hover,
+a.text-dark:focus,
+a.text-dark:active,
+.btn.btn-Link.text-dark:hover,
+.btn.btn-Link.text-dark:focus,
+.btn.btn-Link.text-dark:active {
+    color: var(--blue-200) !important;
+}
+
+button.btn.btn-primary,
+.btn.btn-primary {
+    background-color: var(--red);
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--white);
+    width: fit-content;
+    font-weight: 500;
+    border: 0;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: OpenSans, sans-serif;
+}
+
+button.btn.btn-primary:hover,
+.btn.btn-primary:hover {
+    background-color: var(--red-dark);
+}
+
+button.btn.btn-outline-primary,
+.btn.btn-outline-primary {
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--dark);
+    width: fit-content;
+    font-weight: 500;
+    border: 1px solid var(--red);
+    border-radius: 0;
+    padding: 0.45rem 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: OpenSans, sans-serif;
+}
+
+button.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary:hover {
+    background-color: var(--red-dark);
+    border-color: var(--red-dark);
+    color: var(--white);
+}
+
+button.btn.btn-secondary,
+.btn.btn-secondary {
+    background-color: var(--blue-500);
+    min-width: 55px;
+    min-height: 55px;
+    color: var(--white);
+    width: fit-content;
+    font-weight: bold;
+    border: 0;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button.btn.btn-secondary:hover,
+.btn.btn-secondary:hover {
+    background-color: var(--blue-800);
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid var(--light);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.07),
+        0 10px 30px -5px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* GSAP animation targets */
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floater {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Glassmorphism */
+.bg-glass-light {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Bootstrap-origin background utilities */
+.bg-blue {
+    background-color: var(--blue-500);
+}
+
+/* About section image */
+.about-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
