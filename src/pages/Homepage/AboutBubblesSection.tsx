@@ -32,7 +32,7 @@ const AboutBubblesSection = ({ content }: Props) => {
             className="relative h-screen w-full overflow-hidden z-30 flex items-center justify-center"
         >
             <div
-                className="h-[calc(100vh-80px)]  bg-[#0678c5]"
+                className="h-[calc(100vh-80px)] w-full bg-[#0678c5]"
                 style={{
                     borderRadius: "50% 50% 50% 50% / 40px 40px 40px 40px",
                 }}
@@ -70,7 +70,7 @@ const AboutBubblesSection = ({ content }: Props) => {
                             }}
                         >
                             <h3
-                                className="text-[1.5rem] font-bold text-[#1c4263] leading-snug text-center max-w-2/3 card shadow-2xl"
+                                className="text-[1.5rem] font-bold text-[#1c4263] leading-snug text-center max-w-[50vw] card shadow-2xl"
                                 dangerouslySetInnerHTML={{ __html: bubble }}
                             />
                         </div>
