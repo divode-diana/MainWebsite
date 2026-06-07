@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useLanguage } from "../../context/LanguageContext";
 import { TRANSLATIONS } from "../../constants/translations";
 import { HashLink } from "react-router-hash-link";
@@ -6,6 +9,27 @@ import { LANGUAGES } from "../../constants/enums";
 const Header = () => {
     const { language, toggleLanguage } = useLanguage();
     const content = TRANSLATIONS[language];
+    const navRef = useRef<HTMLElement>(null);
+
+    useGSAP(() => {
+        let lastScrollY = window.scrollY;
+
+        const onScroll = () => {
+            const currentScrollY = window.scrollY;
+            const scrollingDown = currentScrollY > lastScrollY && currentScrollY > 80;
+
+            gsap.to(navRef.current, {
+                yPercent: scrollingDown ? -150 : 0,
+                duration: 0.35,
+                ease: "power2.out",
+            });
+
+            lastScrollY = currentScrollY;
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    });
 
     return (
         <header className="flex justify-center">
@@ -22,7 +46,7 @@ const Header = () => {
                 </HashLink>
             </div>
 
-            <nav className="nav w-full max-w-[min(1700px,90vw)] mx-auto z-50 flex justify-center items-center fixed top-0 mt-3 md:mt-4">
+            <nav ref={navRef} className="nav w-full max-w-[min(1700px,90vw)] mx-auto z-50 flex justify-center items-center fixed top-0 mt-3 md:mt-4">
                 <ul className="flex items-center justify-between w-full m-0">
                     <li>
                         <HashLink smooth to={"/#landing"}>
@@ -30,7 +54,7 @@ const Header = () => {
                                 <img
                                     src="./divode_logo_color.svg"
                                     alt={content.header.logo}
-                                    className="h-10 w-auto"
+                                    className="h-13 w-auto"
                                 />
                             </h1>
                         </HashLink>
