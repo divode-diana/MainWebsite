@@ -52,7 +52,7 @@ const Header = () => {
                         <HashLink smooth to={"/#landing"}>
                             <h1 className="my-1 flex">
                                 <img
-                                    src="./divode_logo_color.svg"
+                                    src="./divode_logo_color.png"
                                     alt={content.header.logo}
                                     className="h-13 w-auto"
                                 />
