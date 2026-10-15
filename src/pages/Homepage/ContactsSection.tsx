@@ -129,7 +129,7 @@ const ContactsSection = ({ content, language }: Props) => {
                         {content.contacts.contacts.text}
                     </h3>
                     <div className="flex flex-col items-center md:items-start gap-3">
-                        <Link to={"mailto:info@divode.io"} target="_blank">
+                        <Link to={"mailto:info@divode.pt"} target="_blank">
                             <Icon icon="envelope" classes="mr-1" />
                             {content.contacts.contacts.divode.email}
                         </Link>
@@ -142,7 +142,7 @@ const ContactsSection = ({ content, language }: Props) => {
                         </Link>
                     </div>
                     <div className="flex flex-col gap-3 items-center md:items-start">
-                        <Link to={"mailto:diana@divode.io"} target="_blank">
+                        <Link to={"mailto:diana@divode.pt"} target="_blank">
                             <Icon icon="envelope" classes="mr-1" />
                             {content.contacts.contacts.diana.email}
                         </Link>

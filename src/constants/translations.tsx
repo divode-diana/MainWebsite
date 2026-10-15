@@ -61,11 +61,11 @@ export const TRANSLATIONS = [
             contacts: {
                 text: "Entre em contacto, preencha o formulário e solicite o seu orçamento gratuitamente.",
                 divode: {
-                    email: "info@divode.io",
+                    email: "info@divode.pt",
                     linkedin: "/divode",
                 },
                 diana: {
-                    email: "diana@divode.io",
+                    email: "diana@divode.pt",
                     linkedin: "/dianafonte",
                     github: "/dianafonte",
                     medium: "@diana_fonte",
@@ -176,11 +176,11 @@ export const TRANSLATIONS = [
             contacts: {
                 text: "Get in touch by filling out the form and request your free quote.",
                 divode: {
-                    email: "info@divode.io",
+                    email: "info@divode.pt",
                     linkedin: "/divode",
                 },
                 diana: {
-                    email: "diana@divode.io",
+                    email: "diana@divode.pt",
                     linkedin: "/dianafonte",
                     github: "/dianafonte",
                     medium: "@diana_fonte",
